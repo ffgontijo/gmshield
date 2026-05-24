@@ -6,88 +6,147 @@
   <meta name="description" content="GM Shield — Quick Starts e Escudos do Mestre digitais para sistemas de RPG. Gratuito, acessível e feito pela comunidade." />
   <title>GM Shield — Digital Toolkit for Game Masters</title>
 
-  <!-- Base styles (loaded in order — do not reorder) -->
+  <!-- Paths com / absoluto: funcionam em qualquer página do domínio -->
   <link rel="stylesheet" href="/css/base/reset.css" />
   <link rel="stylesheet" href="/css/base/variables.css" />
   <link rel="stylesheet" href="/css/base/typography.css" />
   <link rel="stylesheet" href="/css/base/layout.css" />
-
-  <!-- Component styles -->
   <link rel="stylesheet" href="/css/components/navigation.css" />
   <link rel="stylesheet" href="/css/components/cards.css" />
   <link rel="stylesheet" href="/css/components/buttons.css" />
   <link rel="stylesheet" href="/css/components/print.css" />
+
+  <style>
+    /* --------------------------------------------------------
+       Estilos inline só para a home page — não polui o CSS global
+       -------------------------------------------------------- */
+    .hero {
+      padding-block: 5rem 3rem;
+      max-width: 640px;
+    }
+    .hero__title {
+      font-size: clamp(2.5rem, 6vw, 3.5rem);
+      font-weight: 700;
+      color: var(--system-text-heading);
+      line-height: 1.1;
+      margin-bottom: 1rem;
+    }
+    .hero__subtitle {
+      font-size: 1.125rem;
+      color: var(--system-text-muted);
+      line-height: 1.65;
+      max-width: 52ch;
+    }
+    .section-label {
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--system-text-muted);
+      margin-bottom: 1.25rem;
+    }
+    .systems-section { padding-bottom: 4rem; }
+    .site-footer {
+      padding-block: 3rem;
+      border-top: 1px solid var(--system-border);
+      color: var(--system-text-muted);
+      font-size: 0.875rem;
+    }
+    .site-footer a {
+      color: var(--system-primary);
+      transition: opacity 150ms ease;
+    }
+    .site-footer a:hover { opacity: 0.8; }
+  </style>
 </head>
 <body>
 
-  <!-- =====================================================================
-       NAVIGATION
-       ===================================================================== -->
-  <nav class="nav" role="navigation" aria-label="Main navigation">
-    <a href="/" class="nav__brand" aria-label="GM Shield home">
+  <!-- ============================================================
+       NAVEGAÇÃO PRINCIPAL
+       Usar paths /absolutos — funciona em qualquer subpágina
+       ============================================================ -->
+  <nav class="nav" role="navigation" aria-label="Navegação principal">
+    <a href="/" class="nav__brand" aria-label="GM Shield — página inicial">
       <span class="nav__brand-icon" aria-hidden="true">⚔️</span>
       <span>GM Shield</span>
     </a>
     <div class="nav__links">
-      <a href="/" class="nav__link nav__link--active" aria-current="page">Systems</a>
-      <a href="https://github.com/ffgontijo/gmshield" class="nav__link" target="_blank" rel="noopener">GitHub</a>
+      <a href="/" class="nav__link" aria-current="page">Sistemas</a>
+      <a href="https://github.com/ffgontijo/gmshield" class="nav__link"
+         target="_blank" rel="noopener noreferrer">GitHub ↗</a>
     </div>
   </nav>
 
-  <!-- =====================================================================
-       MAIN CONTENT
-       ===================================================================== -->
+  <!-- ============================================================
+       CONTEÚDO PRINCIPAL
+       ============================================================ -->
   <main class="main-content" id="main">
     <div class="container">
 
       <!-- Hero -->
-      <header style="padding-block: var(--space-12) var(--space-8); max-width: var(--container-narrow);">
-        <h1 style="font-size: var(--text-5xl); margin-bottom: var(--space-4);">⚔️ GM Shield</h1>
-        <p style="font-size: var(--text-xl); color: var(--system-text-muted); max-width: 60ch; line-height: var(--leading-relaxed);">
-          Quick Starts para entrar rápido no jogo. Escudos do Mestre digitais para manter a sessão fluindo.
+      <header class="hero">
+        <h1 class="hero__title">⚔️ GM Shield</h1>
+        <p class="hero__subtitle">
+          Quick Starts para entrar rápido no jogo.<br>
+          Escudos do Mestre digitais para manter a sessão fluindo.<br>
           Gratuito, feito pela comunidade, para a comunidade.
         </p>
       </header>
 
-      <!-- Section: Available systems -->
-      <section aria-labelledby="systems-heading">
-        <h2 id="systems-heading" class="label" style="margin-bottom: var(--space-4);">Sistemas disponíveis</h2>
+      <!-- Grid de sistemas -->
+      <section class="systems-section" aria-labelledby="systems-heading">
+        <p class="section-label" id="systems-heading">Sistemas disponíveis</p>
 
-        <div class="systems-grid" id="systems-grid">
+        <div class="systems-grid">
 
-          <!-- Star Wars WEG REUP — In Development -->
-          <article class="system-card" data-system="star-wars-weg-reup">
+          <!-- ------------------------------------------------
+               STAR WARS WEG REUP — Em desenvolvimento
+               Links /absolutos — funcionam de qualquer profundidade
+               ------------------------------------------------ -->
+          <article class="system-card">
             <header class="system-card__header">
               <div>
-                <h3 class="system-card__name">Star Wars: The Roleplaying Game</h3>
+                <h2 class="system-card__name">Star Wars: The Roleplaying Game</h2>
                 <p class="system-card__subtitle">Revised, Expanded and Updated (WEG REUP)</p>
               </div>
               <span class="status-badge status-badge--progress">🔨 Em desenvolvimento</span>
             </header>
+
             <p class="system-card__description">
-              O clássico RPG de Star Wars da West End Games. Role dados, use a Força e viva aventuras numa galáxia muito, muito distante.
+              O clássico RPG de Star Wars da West End Games. Role dados, use a Força
+              e viva aventuras numa galáxia muito, muito distante.
             </p>
+
             <div class="system-card__tags">
               <span class="system-card__tag">Sci-fi</span>
               <span class="system-card__tag">Space Opera</span>
               <span class="system-card__tag">Dados em Pool</span>
             </div>
+
             <footer class="system-card__actions">
-              <a href="/systems/star-wars-weg-reup/quickstart.html" class="btn btn--primary btn--sm">📖 Quick Start</a>
-              <a href="/systems/star-wars-weg-reup/gm-screen.html"  class="btn btn--secondary btn--sm">🛡️ GM Screen</a>
+              <!-- /absoluto: funciona em index.html E em qualquer subpágina -->
+              <a href="/systems/star-wars-weg-reup/quickstart.html"
+                 class="btn btn--primary btn--sm">📖 Quick Start</a>
+              <a href="/systems/star-wars-weg-reup/gm-screen.html"
+                 class="btn btn--secondary btn--sm">🛡️ GM Screen</a>
             </footer>
           </article>
 
-          <!-- D&D 5e — Planned -->
-          <article class="system-card" data-system="dnd5e" style="opacity: 0.6; pointer-events: none;">
+          <!-- ------------------------------------------------
+               DUNGEONS & DRAGONS 5E — Planejado
+               ------------------------------------------------ -->
+          <article class="system-card" aria-disabled="true"
+                   style="opacity:0.55; pointer-events:none; cursor:default;">
             <header class="system-card__header">
               <div>
-                <h3 class="system-card__name">Dungeons & Dragons 5e</h3>
+                <h2 class="system-card__name">Dungeons &amp; Dragons 5e</h2>
                 <p class="system-card__subtitle">5ª Edição</p>
               </div>
               <span class="status-badge status-badge--planned">📋 Planejado</span>
             </header>
-            <p class="system-card__description">O RPG de fantasia mais jogado do mundo. Aventuras épicas com heróis, monstros e magia.</p>
+            <p class="system-card__description">
+              O RPG de fantasia mais jogado do mundo. Aventuras épicas com heróis, monstros e magia.
+            </p>
             <div class="system-card__tags">
               <span class="system-card__tag">Fantasia</span>
               <span class="system-card__tag">D20</span>
@@ -95,16 +154,21 @@
             </div>
           </article>
 
-          <!-- Call of Cthulhu — Planned -->
-          <article class="system-card" data-system="call-of-cthulhu" style="opacity: 0.6; pointer-events: none;">
+          <!-- ------------------------------------------------
+               CALL OF CTHULHU — Planejado
+               ------------------------------------------------ -->
+          <article class="system-card" aria-disabled="true"
+                   style="opacity:0.55; pointer-events:none; cursor:default;">
             <header class="system-card__header">
               <div>
-                <h3 class="system-card__name">Call of Cthulhu</h3>
+                <h2 class="system-card__name">Call of Cthulhu</h2>
                 <p class="system-card__subtitle">7ª Edição</p>
               </div>
               <span class="status-badge status-badge--planned">📋 Planejado</span>
             </header>
-            <p class="system-card__description">Horror investigativo lovecraftiano. Investigue o desconhecido — mas cuidado com sua sanidade.</p>
+            <p class="system-card__description">
+              Horror investigativo lovecraftiano. Investigue o desconhecido — mas cuide da sua sanidade.
+            </p>
             <div class="system-card__tags">
               <span class="system-card__tag">Horror</span>
               <span class="system-card__tag">Investigação</span>
@@ -112,16 +176,22 @@
             </div>
           </article>
 
-          <!-- Ordem Paranormal — Planned -->
-          <article class="system-card" data-system="ordem-paranormal" style="opacity: 0.6; pointer-events: none;">
+          <!-- ------------------------------------------------
+               ORDEM PARANORMAL — Planejado
+               ------------------------------------------------ -->
+          <article class="system-card" aria-disabled="true"
+                   style="opacity:0.55; pointer-events:none; cursor:default;">
             <header class="system-card__header">
               <div>
-                <h3 class="system-card__name">Ordem Paranormal</h3>
+                <h2 class="system-card__name">Ordem Paranormal</h2>
                 <p class="system-card__subtitle">RPG</p>
               </div>
               <span class="status-badge status-badge--planned">📋 Planejado</span>
             </header>
-            <p class="system-card__description">Horror urbano brasileiro. Agentes da Ordem investigam o paranormal numa São Paulo sombria e oculta.</p>
+            <p class="system-card__description">
+              Horror urbano brasileiro. Agentes da Ordem investigam o paranormal
+              numa São Paulo sombria e oculta.
+            </p>
             <div class="system-card__tags">
               <span class="system-card__tag">Horror Urbano</span>
               <span class="system-card__tag">Brasileiro</span>
@@ -129,22 +199,26 @@
             </div>
           </article>
 
-        </div>
+        </div><!-- .systems-grid -->
       </section>
 
       <!-- Footer -->
-      <footer style="padding-block: var(--space-16) var(--space-8); color: var(--system-text-muted); font-size: var(--text-sm);">
+      <footer class="site-footer">
         <p>GM Shield — Um projeto de fã, feito com ❤️ pela comunidade de RPG brasileira.</p>
-        <p style="margin-top: var(--space-2);">
-          <a href="https://github.com/ffgontijo/gmshield" style="color: var(--system-primary);" target="_blank" rel="noopener">GitHub</a>
+        <p style="margin-top:0.5rem;">
+          <a href="https://github.com/ffgontijo/gmshield"
+             target="_blank" rel="noopener noreferrer">GitHub</a>
           &nbsp;·&nbsp;
-          <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" style="color: var(--system-primary);" target="_blank" rel="noopener">CC BY-NC-SA 4.0</a>
+          <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/"
+             target="_blank" rel="noopener noreferrer">CC BY-NC-SA 4.0</a>
         </p>
       </footer>
 
-    </div>
+    </div><!-- .container -->
   </main>
 
+  <!-- JS com /absoluto — mesmo padrão dos CSS -->
   <script type="module" src="/js/core/app.js"></script>
+
 </body>
 </html>
