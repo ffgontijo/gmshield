@@ -1,0 +1,16 @@
+# OS files
+.DS_Store
+Thumbs.db
+
+# Editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Downloads gerados (não versionar PDFs, só o source)
+downloads/pdf/*.pdf
+downloads/exports/*
+
+# Logs
+*.log
