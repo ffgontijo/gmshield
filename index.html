@@ -3,221 +3,764 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="GM Shield — Quick Starts e Escudos do Mestre digitais para sistemas de RPG. Gratuito, acessível e feito pela comunidade." />
+  <meta name="description" content="GM Shield — Quick Starts e Escudos do Mestre digitais para sistemas de RPG. Gratuito, feito pela comunidade." />
   <title>GM Shield — Digital Toolkit for Game Masters</title>
 
-  <!-- Paths com / absoluto: funcionam em qualquer página do domínio -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Crimson+Pro:ital,wght@0,300;0,400;0,600;1,300;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
   <link rel="stylesheet" href="/css/base/reset.css" />
   <link rel="stylesheet" href="/css/base/variables.css" />
-  <link rel="stylesheet" href="/css/base/typography.css" />
   <link rel="stylesheet" href="/css/base/layout.css" />
-  <link rel="stylesheet" href="/css/components/navigation.css" />
-  <link rel="stylesheet" href="/css/components/cards.css" />
   <link rel="stylesheet" href="/css/components/buttons.css" />
   <link rel="stylesheet" href="/css/components/print.css" />
 
   <style>
-    /* --------------------------------------------------------
-       Estilos inline só para a home page — não polui o CSS global
-       -------------------------------------------------------- */
-    .hero {
-      padding-block: 5rem 3rem;
-      max-width: 640px;
+    /* ============================================================
+       GM SHIELD — HOME PAGE STYLES
+       Tema: grimório épico + terminal de sessão
+       ============================================================ */
+
+    :root {
+      --gold:        #C9A84C;
+      --gold-light:  #E8C97A;
+      --gold-dim:    #7A6030;
+      --ink:         #0A0A0F;
+      --ink-mid:     #12121A;
+      --ink-card:    #16161F;
+      --ink-border:  #2A2A38;
+      --ink-hover:   #1E1E2A;
+      --text-primary: #E8E4D8;
+      --text-muted:   #7A7568;
+      --text-dim:     #4A4840;
+      --red-dim:      #7A2020;
+      --font-display: 'Cinzel', serif;
+      --font-body:    'Crimson Pro', Georgia, serif;
+      --font-mono:    'JetBrains Mono', monospace;
     }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { font-size: 16px; scroll-behavior: smooth; }
+
+    body {
+      background-color: var(--ink);
+      color: var(--text-primary);
+      font-family: var(--font-body);
+      font-size: 1.0625rem;
+      line-height: 1.6;
+      min-height: 100vh;
+      overflow-x: hidden;
+      /* Noise texture overlay */
+      background-image:
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+    }
+
+    /* ── NAVIGATION ────────────────────────────────────────── */
+    .nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 2.5rem;
+      height: 56px;
+      background: rgba(10,10,15,0.85);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(201,168,76,0.15);
+    }
+
+    .nav__brand {
+      display: flex;
+      align-items: center;
+      gap: 0.625rem;
+      font-family: var(--font-display);
+      font-size: 1rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      color: var(--gold);
+      text-decoration: none;
+    }
+
+    .nav__brand-glyph {
+      font-size: 1.25rem;
+      opacity: 0.9;
+    }
+
+    .nav__links {
+      display: flex;
+      align-items: center;
+      gap: 0.25rem;
+    }
+
+    .nav__link {
+      padding: 0.375rem 0.875rem;
+      font-family: var(--font-display);
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      text-decoration: none;
+      border-radius: 2px;
+      transition: color 150ms ease;
+    }
+
+    .nav__link:hover { color: var(--gold-light); }
+
+    /* ── HERO ────────────────────────────────────────────────── */
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 6rem 2rem 4rem;
+      overflow: hidden;
+    }
+
+    /* Radial glow behind title */
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -55%);
+      width: 600px; height: 600px;
+      background: radial-gradient(ellipse, rgba(201,168,76,0.07) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    /* Horizontal rule decorations */
+    .hero::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(201,168,76,0.3), transparent);
+    }
+
+    .hero__ornament {
+      font-family: var(--font-display);
+      font-size: 0.65rem;
+      letter-spacing: 0.35em;
+      text-transform: uppercase;
+      color: var(--gold-dim);
+      margin-bottom: 2rem;
+      animation: fadeSlideUp 0.8s ease both;
+    }
+
+    .hero__shield {
+      font-size: 4rem;
+      line-height: 1;
+      margin-bottom: 1.5rem;
+      animation: fadeSlideUp 0.9s ease 0.1s both;
+      filter: drop-shadow(0 0 24px rgba(201,168,76,0.3));
+    }
+
     .hero__title {
-      font-size: clamp(2.5rem, 6vw, 3.5rem);
+      font-family: var(--font-display);
+      font-size: clamp(3rem, 8vw, 5.5rem);
+      font-weight: 900;
+      letter-spacing: 0.04em;
+      color: var(--gold-light);
+      line-height: 1;
+      margin-bottom: 0.5rem;
+      animation: fadeSlideUp 1s ease 0.15s both;
+      text-shadow: 0 0 60px rgba(201,168,76,0.2);
+    }
+
+    .hero__title-sub {
+      font-family: var(--font-display);
+      font-size: clamp(0.7rem, 1.5vw, 0.85rem);
+      font-weight: 400;
+      letter-spacing: 0.4em;
+      text-transform: uppercase;
+      color: var(--gold-dim);
+      margin-bottom: 2.5rem;
+      animation: fadeSlideUp 1s ease 0.2s both;
+    }
+
+    .hero__divider {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 2rem;
+      animation: fadeSlideUp 1s ease 0.25s both;
+    }
+
+    .hero__divider-line {
+      flex: 1;
+      max-width: 80px;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--gold-dim));
+    }
+
+    .hero__divider-line:last-child {
+      background: linear-gradient(270deg, transparent, var(--gold-dim));
+    }
+
+    .hero__divider-glyph {
+      color: var(--gold);
+      font-size: 1rem;
+    }
+
+    .hero__desc {
+      font-family: var(--font-body);
+      font-size: clamp(1rem, 2vw, 1.1875rem);
+      font-style: italic;
+      color: var(--text-muted);
+      max-width: 52ch;
+      line-height: 1.8;
+      animation: fadeSlideUp 1s ease 0.3s both;
+    }
+
+    .hero__desc em {
+      color: var(--text-primary);
+      font-style: normal;
+    }
+
+    .hero__tags {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.5rem;
+      margin-top: 2.5rem;
+      animation: fadeSlideUp 1s ease 0.4s both;
+    }
+
+    .hero__tag {
+      padding: 0.3rem 0.875rem;
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      letter-spacing: 0.05em;
+      color: var(--gold-dim);
+      border: 1px solid rgba(201,168,76,0.2);
+      border-radius: 1px;
+    }
+
+    .scroll-hint {
+      position: absolute;
+      bottom: 2.5rem;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+      font-family: var(--font-mono);
+      font-size: 0.65rem;
+      letter-spacing: 0.15em;
+      color: var(--text-dim);
+      animation: fadeSlideUp 1s ease 0.6s both;
+    }
+
+    .scroll-hint__arrow {
+      width: 1px;
+      height: 28px;
+      background: linear-gradient(180deg, var(--text-dim), transparent);
+      animation: scrollPulse 2s ease-in-out infinite;
+    }
+
+    /* ── SECTION: SYSTEMS ───────────────────────────────────── */
+    .section {
+      padding: 5rem 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .section__header {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      margin-bottom: 3rem;
+    }
+
+    .section__label {
+      font-family: var(--font-display);
+      font-size: 0.65rem;
+      font-weight: 600;
+      letter-spacing: 0.35em;
+      text-transform: uppercase;
+      color: var(--gold-dim);
+      white-space: nowrap;
+    }
+
+    .section__rule {
+      flex: 1;
+      height: 1px;
+      background: linear-gradient(90deg, rgba(201,168,76,0.2), transparent);
+    }
+
+    /* ── SYSTEM CARDS ───────────────────────────────────────── */
+    .systems-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .card {
+      position: relative;
+      background: var(--ink-card);
+      border: 1px solid var(--ink-border);
+      border-top: 2px solid var(--gold-dim);
+      padding: 1.75rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      transition: border-color 250ms ease, transform 250ms ease, box-shadow 250ms ease;
+      cursor: pointer;
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .card:hover {
+      border-color: var(--gold);
+      border-top-color: var(--gold);
+      transform: translateY(-3px);
+      box-shadow: 0 12px 40px rgba(0,0,0,0.5), 0 0 0 1px rgba(201,168,76,0.1);
+    }
+
+    .card--active { border-top-color: var(--gold); }
+
+    .card--planned {
+      opacity: 0.5;
+      cursor: default;
+      pointer-events: none;
+    }
+
+    /* Corner ornament */
+    .card::before {
+      content: '';
+      position: absolute;
+      bottom: 0; right: 0;
+      width: 24px; height: 24px;
+      border-bottom: 1px solid var(--ink-border);
+      border-right: 1px solid var(--ink-border);
+      transition: border-color 250ms ease;
+    }
+
+    .card:hover::before { border-color: var(--gold-dim); }
+
+    .card__meta {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 0.75rem;
+    }
+
+    .card__system-name {
+      font-family: var(--font-display);
+      font-size: 1rem;
       font-weight: 700;
-      color: var(--system-text-heading);
-      line-height: 1.1;
+      letter-spacing: 0.04em;
+      color: var(--gold-light);
+      line-height: 1.3;
+    }
+
+    .card__subtitle {
+      font-family: var(--font-mono);
+      font-size: 0.65rem;
+      letter-spacing: 0.06em;
+      color: var(--text-dim);
+      margin-top: 0.25rem;
+    }
+
+    .card__badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      padding: 0.2rem 0.6rem;
+      font-family: var(--font-mono);
+      font-size: 0.6rem;
+      letter-spacing: 0.08em;
+      white-space: nowrap;
+      flex-shrink: 0;
+      border-radius: 1px;
+    }
+
+    .card__badge--wip {
+      color: #C9A84C;
+      background: rgba(201,168,76,0.08);
+      border: 1px solid rgba(201,168,76,0.2);
+    }
+
+    .card__badge--planned {
+      color: var(--text-dim);
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.07);
+    }
+
+    .card__desc {
+      font-family: var(--font-body);
+      font-size: 0.9375rem;
+      color: var(--text-muted);
+      line-height: 1.65;
+      flex: 1;
+    }
+
+    .card__tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.375rem;
+    }
+
+    .card__tag {
+      padding: 0.15rem 0.5rem;
+      font-family: var(--font-mono);
+      font-size: 0.6rem;
+      letter-spacing: 0.04em;
+      color: var(--text-dim);
+      border: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .card__actions {
+      display: flex;
+      gap: 0.625rem;
+      padding-top: 1rem;
+      border-top: 1px solid var(--ink-border);
+    }
+
+    .card__btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.45rem 0.875rem;
+      font-family: var(--font-display);
+      font-size: 0.625rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      text-decoration: none;
+      border-radius: 1px;
+      transition: all 150ms ease;
+    }
+
+    .card__btn--primary {
+      color: var(--ink);
+      background: var(--gold);
+    }
+
+    .card__btn--primary:hover {
+      background: var(--gold-light);
+    }
+
+    .card__btn--secondary {
+      color: var(--gold-dim);
+      border: 1px solid rgba(201,168,76,0.25);
+    }
+
+    .card__btn--secondary:hover {
+      color: var(--gold);
+      border-color: rgba(201,168,76,0.5);
+      background: rgba(201,168,76,0.05);
+    }
+
+    /* ── ABOUT STRIP ────────────────────────────────────────── */
+    .about-strip {
+      border-top: 1px solid var(--ink-border);
+      border-bottom: 1px solid var(--ink-border);
+      margin: 0 2rem;
+      padding: 3rem 0;
+    }
+
+    .about-strip__inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 2.5rem;
+    }
+
+    .feature {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .feature__icon {
+      font-size: 1.5rem;
+      margin-bottom: 0.25rem;
+    }
+
+    .feature__title {
+      font-family: var(--font-display);
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+
+    .feature__desc {
+      font-family: var(--font-body);
+      font-size: 0.9375rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    /* ── FOOTER ─────────────────────────────────────────────── */
+    .footer {
+      padding: 3rem 2rem 4rem;
+      text-align: center;
+    }
+
+    .footer__divider {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      max-width: 300px;
+      margin: 0 auto 2rem;
+    }
+
+    .footer__divider-line {
+      flex: 1;
+      height: 1px;
+      background: var(--ink-border);
+    }
+
+    .footer__divider-glyph {
+      color: var(--gold-dim);
+      font-size: 0.75rem;
+    }
+
+    .footer__text {
+      font-family: var(--font-body);
+      font-style: italic;
+      font-size: 0.875rem;
+      color: var(--text-dim);
       margin-bottom: 1rem;
     }
-    .hero__subtitle {
-      font-size: 1.125rem;
-      color: var(--system-text-muted);
-      line-height: 1.65;
-      max-width: 52ch;
+
+    .footer__links {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 0.5rem;
+      font-family: var(--font-mono);
+      font-size: 0.65rem;
+      letter-spacing: 0.06em;
+      color: var(--text-dim);
     }
-    .section-label {
-      font-size: 0.75rem;
-      font-weight: 600;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: var(--system-text-muted);
-      margin-bottom: 1.25rem;
+
+    .footer__link {
+      color: var(--gold-dim);
+      text-decoration: none;
+      transition: color 150ms ease;
     }
-    .systems-section { padding-bottom: 4rem; }
-    .site-footer {
-      padding-block: 3rem;
-      border-top: 1px solid var(--system-border);
-      color: var(--system-text-muted);
-      font-size: 0.875rem;
+
+    .footer__link:hover { color: var(--gold); }
+
+    /* ── ANIMATIONS ─────────────────────────────────────────── */
+    @keyframes fadeSlideUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to   { opacity: 1; transform: translateY(0); }
     }
-    .site-footer a {
-      color: var(--system-primary);
-      transition: opacity 150ms ease;
+
+    @keyframes scrollPulse {
+      0%, 100% { opacity: 0.3; }
+      50%       { opacity: 0.8; }
     }
-    .site-footer a:hover { opacity: 0.8; }
+
+    /* ── RESPONSIVE ─────────────────────────────────────────── */
+    @media (max-width: 768px) {
+      .nav { padding: 0 1.25rem; }
+      .hero { padding: 5rem 1.25rem 3rem; }
+      .hero__title { font-size: 3rem; }
+      .section { padding: 3rem 1.25rem; }
+      .about-strip { margin: 0 1.25rem; }
+    }
   </style>
 </head>
 <body>
 
-  <!-- ============================================================
-       NAVEGAÇÃO PRINCIPAL
-       Usar paths /absolutos — funciona em qualquer subpágina
-       ============================================================ -->
+  <!-- ============================================================ NAVIGATION -->
   <nav class="nav" role="navigation" aria-label="Navegação principal">
-    <a href="/" class="nav__brand" aria-label="GM Shield — página inicial">
-      <span class="nav__brand-icon" aria-hidden="true">⚔️</span>
-      <span>GM Shield</span>
+    <a href="/" class="nav__brand" aria-label="GM Shield — início">
+      <span class="nav__brand-glyph" aria-hidden="true">⚔️</span>
+      GM Shield
     </a>
     <div class="nav__links">
-      <a href="/" class="nav__link" aria-current="page">Sistemas</a>
-      <a href="https://github.com/ffgontijo/gmshield" class="nav__link"
-         target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+      <a href="/" class="nav__link">Sistemas</a>
+      <a href="https://github.com/ffgontijo/gmshield" class="nav__link" target="_blank" rel="noopener">GitHub ↗</a>
     </div>
   </nav>
 
-  <!-- ============================================================
-       CONTEÚDO PRINCIPAL
-       ============================================================ -->
-  <main class="main-content" id="main">
-    <div class="container">
+  <!-- ============================================================ HERO -->
+  <section class="hero" aria-label="Apresentação do projeto">
 
-      <!-- Hero -->
-      <header class="hero">
-        <h1 class="hero__title">⚔️ GM Shield</h1>
-        <p class="hero__subtitle">
-          Quick Starts para entrar rápido no jogo.<br>
-          Escudos do Mestre digitais para manter a sessão fluindo.<br>
-          Gratuito, feito pela comunidade, para a comunidade.
+    <p class="hero__ornament">Toolkit para Mestres e Jogadores</p>
+
+    <div class="hero__shield" aria-hidden="true">⚔️</div>
+
+    <h1 class="hero__title">GM Shield</h1>
+    <p class="hero__title-sub">Digital Toolkit for Game Masters</p>
+
+    <div class="hero__divider" aria-hidden="true">
+      <span class="hero__divider-line"></span>
+      <span class="hero__divider-glyph">✦</span>
+      <span class="hero__divider-line"></span>
+    </div>
+
+    <p class="hero__desc">
+      <em>Quick Starts</em> para entrar no jogo sem ler o livro inteiro.<br>
+      <em>Escudos do Mestre digitais</em> para nunca perder o ritmo da sessão.<br>
+      Gratuito, aberto, feito com obsessão por RPG.
+    </p>
+
+    <div class="hero__tags" role="list" aria-label="Características do projeto">
+      <span class="hero__tag" role="listitem">// gratuito</span>
+      <span class="hero__tag" role="listitem">// open source</span>
+      <span class="hero__tag" role="listitem">// pt-BR</span>
+      <span class="hero__tag" role="listitem">// sem login</span>
+      <span class="hero__tag" role="listitem">// sem ads</span>
+    </div>
+
+    <div class="scroll-hint" aria-hidden="true">
+      <span>sistemas</span>
+      <span class="scroll-hint__arrow"></span>
+    </div>
+
+  </section>
+
+  <!-- ============================================================ FEATURES -->
+  <div class="about-strip" role="region" aria-label="O que é o GM Shield">
+    <div class="about-strip__inner">
+      <div class="feature">
+        <span class="feature__icon" aria-hidden="true">📖</span>
+        <span class="feature__title">Quick Start</span>
+        <p class="feature__desc">Tudo que você precisa para jogar em uma leitura. Mecânicas, personagens, combate — sem enrolação.</p>
+      </div>
+      <div class="feature">
+        <span class="feature__icon" aria-hidden="true">🛡️</span>
+        <span class="feature__title">GM Screen Digital</span>
+        <p class="feature__desc">Tabelas e regras em painéis compactos. Abra no tablet durante a sessão e esqueça que existe.</p>
+      </div>
+      <div class="feature">
+        <span class="feature__icon" aria-hidden="true">🖨️</span>
+        <span class="feature__title">Imprimível</span>
+        <p class="feature__desc">Todo Quick Start tem versão para impressão limpa. Leve para a mesa em papel se preferir.</p>
+      </div>
+      <div class="feature">
+        <span class="feature__icon" aria-hidden="true">🇧🇷</span>
+        <span class="feature__title">Português</span>
+        <p class="feature__desc">Conteúdo original em pt-BR para sistemas que nunca tiveram material acessível no Brasil.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============================================================ SYSTEMS -->
+  <main class="section" id="sistemas" aria-labelledby="systems-heading">
+
+    <div class="section__header">
+      <span class="section__label" id="systems-heading">Sistemas disponíveis</span>
+      <span class="section__rule" aria-hidden="true"></span>
+    </div>
+
+    <div class="systems-grid">
+
+      <!-- Star Wars WEG REUP -->
+      <article class="card card--active">
+        <div class="card__meta">
+          <div>
+            <h2 class="card__system-name">Star Wars: The Roleplaying Game</h2>
+            <p class="card__subtitle">West End Games — REUP Edition</p>
+          </div>
+          <span class="card__badge card__badge--wip">⚒ em dev</span>
+        </div>
+        <p class="card__desc">
+          O clássico RPG de Star Wars da West End Games, revisado pela comunidade.
+          Role pools de dados, use a Força e viva aventuras numa galáxia muito, muito distante.
         </p>
-      </header>
+        <div class="card__tags">
+          <span class="card__tag">sci-fi</span>
+          <span class="card__tag">space opera</span>
+          <span class="card__tag">dados em pool</span>
+          <span class="card__tag">wild die</span>
+        </div>
+        <footer class="card__actions">
+          <a href="/systems/star-wars-weg-reup/quickstart.html" class="card__btn card__btn--primary">📖 Quick Start</a>
+          <a href="/systems/star-wars-weg-reup/gm-screen.html"  class="card__btn card__btn--secondary">🛡️ GM Screen</a>
+        </footer>
+      </article>
 
-      <!-- Grid de sistemas -->
-      <section class="systems-section" aria-labelledby="systems-heading">
-        <p class="section-label" id="systems-heading">Sistemas disponíveis</p>
+      <!-- D&D 5e -->
+      <article class="card card--planned" aria-disabled="true">
+        <div class="card__meta">
+          <div>
+            <h2 class="card__system-name">Dungeons &amp; Dragons 5e</h2>
+            <p class="card__subtitle">Wizards of the Coast — 5ª Edição</p>
+          </div>
+          <span class="card__badge card__badge--planned">planejado</span>
+        </div>
+        <p class="card__desc">O RPG de fantasia mais jogado do mundo. Aventuras épicas com heróis, monstros e magia.</p>
+        <div class="card__tags">
+          <span class="card__tag">fantasia</span>
+          <span class="card__tag">d20</span>
+          <span class="card__tag">classes</span>
+        </div>
+      </article>
 
-        <div class="systems-grid">
+      <!-- Call of Cthulhu -->
+      <article class="card card--planned" aria-disabled="true">
+        <div class="card__meta">
+          <div>
+            <h2 class="card__system-name">Call of Cthulhu</h2>
+            <p class="card__subtitle">Chaosium — 7ª Edição</p>
+          </div>
+          <span class="card__badge card__badge--planned">planejado</span>
+        </div>
+        <p class="card__desc">Horror investigativo lovecraftiano. Investigue o desconhecido — mas cuide bem da sua sanidade.</p>
+        <div class="card__tags">
+          <span class="card__tag">horror</span>
+          <span class="card__tag">investigação</span>
+          <span class="card__tag">percentil</span>
+        </div>
+      </article>
 
-          <!-- ------------------------------------------------
-               STAR WARS WEG REUP — Em desenvolvimento
-               Links /absolutos — funcionam de qualquer profundidade
-               ------------------------------------------------ -->
-          <article class="system-card">
-            <header class="system-card__header">
-              <div>
-                <h2 class="system-card__name">Star Wars: The Roleplaying Game</h2>
-                <p class="system-card__subtitle">Revised, Expanded and Updated (WEG REUP)</p>
-              </div>
-              <span class="status-badge status-badge--progress">🔨 Em desenvolvimento</span>
-            </header>
+      <!-- Ordem Paranormal -->
+      <article class="card card--planned" aria-disabled="true">
+        <div class="card__meta">
+          <div>
+            <h2 class="card__system-name">Ordem Paranormal</h2>
+            <p class="card__subtitle">Jambo — RPG</p>
+          </div>
+          <span class="card__badge card__badge--planned">planejado</span>
+        </div>
+        <p class="card__desc">Horror urbano brasileiro. Agentes da Ordem investigam o paranormal numa São Paulo sombria.</p>
+        <div class="card__tags">
+          <span class="card__tag">horror urbano</span>
+          <span class="card__tag">brasileiro</span>
+          <span class="card__tag">d20</span>
+        </div>
+      </article>
 
-            <p class="system-card__description">
-              O clássico RPG de Star Wars da West End Games. Role dados, use a Força
-              e viva aventuras numa galáxia muito, muito distante.
-            </p>
-
-            <div class="system-card__tags">
-              <span class="system-card__tag">Sci-fi</span>
-              <span class="system-card__tag">Space Opera</span>
-              <span class="system-card__tag">Dados em Pool</span>
-            </div>
-
-            <footer class="system-card__actions">
-              <!-- /absoluto: funciona em index.html E em qualquer subpágina -->
-              <a href="/systems/star-wars-weg-reup/quickstart.html"
-                 class="btn btn--primary btn--sm">📖 Quick Start</a>
-              <a href="/systems/star-wars-weg-reup/gm-screen.html"
-                 class="btn btn--secondary btn--sm">🛡️ GM Screen</a>
-            </footer>
-          </article>
-
-          <!-- ------------------------------------------------
-               DUNGEONS & DRAGONS 5E — Planejado
-               ------------------------------------------------ -->
-          <article class="system-card" aria-disabled="true"
-                   style="opacity:0.55; pointer-events:none; cursor:default;">
-            <header class="system-card__header">
-              <div>
-                <h2 class="system-card__name">Dungeons &amp; Dragons 5e</h2>
-                <p class="system-card__subtitle">5ª Edição</p>
-              </div>
-              <span class="status-badge status-badge--planned">📋 Planejado</span>
-            </header>
-            <p class="system-card__description">
-              O RPG de fantasia mais jogado do mundo. Aventuras épicas com heróis, monstros e magia.
-            </p>
-            <div class="system-card__tags">
-              <span class="system-card__tag">Fantasia</span>
-              <span class="system-card__tag">D20</span>
-              <span class="system-card__tag">Classes</span>
-            </div>
-          </article>
-
-          <!-- ------------------------------------------------
-               CALL OF CTHULHU — Planejado
-               ------------------------------------------------ -->
-          <article class="system-card" aria-disabled="true"
-                   style="opacity:0.55; pointer-events:none; cursor:default;">
-            <header class="system-card__header">
-              <div>
-                <h2 class="system-card__name">Call of Cthulhu</h2>
-                <p class="system-card__subtitle">7ª Edição</p>
-              </div>
-              <span class="status-badge status-badge--planned">📋 Planejado</span>
-            </header>
-            <p class="system-card__description">
-              Horror investigativo lovecraftiano. Investigue o desconhecido — mas cuide da sua sanidade.
-            </p>
-            <div class="system-card__tags">
-              <span class="system-card__tag">Horror</span>
-              <span class="system-card__tag">Investigação</span>
-              <span class="system-card__tag">Percentil</span>
-            </div>
-          </article>
-
-          <!-- ------------------------------------------------
-               ORDEM PARANORMAL — Planejado
-               ------------------------------------------------ -->
-          <article class="system-card" aria-disabled="true"
-                   style="opacity:0.55; pointer-events:none; cursor:default;">
-            <header class="system-card__header">
-              <div>
-                <h2 class="system-card__name">Ordem Paranormal</h2>
-                <p class="system-card__subtitle">RPG</p>
-              </div>
-              <span class="status-badge status-badge--planned">📋 Planejado</span>
-            </header>
-            <p class="system-card__description">
-              Horror urbano brasileiro. Agentes da Ordem investigam o paranormal
-              numa São Paulo sombria e oculta.
-            </p>
-            <div class="system-card__tags">
-              <span class="system-card__tag">Horror Urbano</span>
-              <span class="system-card__tag">Brasileiro</span>
-              <span class="system-card__tag">D20</span>
-            </div>
-          </article>
-
-        </div><!-- .systems-grid -->
-      </section>
-
-      <!-- Footer -->
-      <footer class="site-footer">
-        <p>GM Shield — Um projeto de fã, feito com ❤️ pela comunidade de RPG brasileira.</p>
-        <p style="margin-top:0.5rem;">
-          <a href="https://github.com/ffgontijo/gmshield"
-             target="_blank" rel="noopener noreferrer">GitHub</a>
-          &nbsp;·&nbsp;
-          <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/"
-             target="_blank" rel="noopener noreferrer">CC BY-NC-SA 4.0</a>
-        </p>
-      </footer>
-
-    </div><!-- .container -->
+    </div>
   </main>
 
-  <!-- JS com /absoluto — mesmo padrão dos CSS -->
+  <!-- ============================================================ FOOTER -->
+  <footer class="footer" role="contentinfo">
+    <div class="footer__divider" aria-hidden="true">
+      <span class="footer__divider-line"></span>
+      <span class="footer__divider-glyph">✦</span>
+      <span class="footer__divider-line"></span>
+    </div>
+    <p class="footer__text">
+      "The best GM screen is the one that keeps you in the story."
+    </p>
+    <p class="footer__text" style="margin-top: 0.5rem;">
+      Um projeto de fã, feito com ❤️ pela comunidade de RPG brasileira.
+    </p>
+    <div class="footer__links">
+      <a href="https://github.com/ffgontijo/gmshield" class="footer__link" target="_blank" rel="noopener">github</a>
+      <span aria-hidden="true">·</span>
+      <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="footer__link" target="_blank" rel="noopener">cc by-nc-sa 4.0</a>
+    </div>
+  </footer>
+
   <script type="module" src="/js/core/app.js"></script>
 
 </body>
