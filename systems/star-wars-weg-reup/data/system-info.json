@@ -1,0 +1,20 @@
+{
+  "id": "star-wars-weg-reup",
+  "name": "Star Wars: The Roleplaying Game",
+  "subtitle": "Revised, Expanded and Updated",
+  "publisher": "West End Games (Fan Revision — REUP Team)",
+  "year": "1987 (REUP: 2015)",
+  "language": "pt-BR",
+  "description": "O clássico RPG de Star Wars da West End Games, revisado e expandido pela comunidade. Um sistema elegante baseado em pools de dados D6 com o icônico Dado Selvagem — simples de aprender, impossível de parar de jogar.",
+  "theme": "star-wars-weg-reup",
+  "status": "in-progress",
+  "features": {
+    "quickstart": true,
+    "gm_screen": false,
+    "pdf_download": false
+  },
+  "tags": ["sci-fi", "space opera", "adventure", "dados em pool", "d6", "star wars"],
+  "dice_needed": "Vários dados de 6 lados (D6), preferencialmente de cores diferentes",
+  "players": "2–8 jogadores + 1 Mestre",
+  "session_length": "2–4 horas por sessão"
+}

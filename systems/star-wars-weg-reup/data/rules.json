@@ -1,0 +1,132 @@
+{
+  "version": "1.0",
+  "sections": [
+    {
+      "id": "o-que-e-este-jogo",
+      "title": "O que é este jogo?",
+      "content": "Star Wars: The Roleplaying Game foi publicado pela West End Games em 1987 e é considerado um dos sistemas de RPG mais elegantes já criados. O jogo usa dados de 6 lados (D6) em pools — você coleta um punhado de dados, rola tudo de uma vez e compara com um número de dificuldade. Simples assim.\n\nA versão REUP (Revised, Expanded and Updated) é uma revisão feita por fãs em 2015, que consolidou décadas de suplementos e regras adicionais numa única publicação organizada. É um trabalho de amor da comunidade, distribuído gratuitamente.\n\nO sistema funciona em qualquer Era de Star Wars: Era da República, Era da Rebelião, Nova República — escolha a que preferir e jogue.",
+      "examples": [
+        {
+          "label": "Por que jogar WEG?",
+          "text": "Porque em 10 minutos você ensina as regras para qualquer pessoa. Porque o Dado Selvagem faz cada sessão ser imprevisível. Porque o sistema captura perfeitamente o drama cinemático de Star Wars — personagens ordinários fazendo coisas extraordinárias."
+        }
+      ]
+    },
+    {
+      "id": "mecanica-central",
+      "title": "A mecânica central",
+      "content": "A mecânica inteira do jogo cabe em uma frase:\n\n**O Mestre define um número de dificuldade. Você rola os dados da skill. Se o resultado for igual ou maior, você consegue.**\n\nCada skill tem um código de dados como 4D, 5D+2, 3D+1. Esse código significa: role tantos dados de 6 lados e some os resultados, adicionando os pips (+1 ou +2) ao total.\n\nSe você não tiver a skill, role o atributo base.",
+      "examples": [
+        {
+          "label": "Exemplo — Han Solo no campo de asteróides",
+          "text": "Han está pilotando o Millennium Falcon num campo de asteróides. O Mestre decide que desviar dos asteróides é Difícil (dificuldade 18). Han tem 'space transports: Millennium Falcon' em 6D+2. O jogador rola 6 dados e obtém 1, 3, 4, 6, 5, 2 = 21, mais +2 = 23. Han passa raspando pelos asteróides — a tripulação solta um grito de alívio."
+        },
+        {
+          "label": "Exemplo — Leia tentando blefar",
+          "text": "Leia está tentando convencer um guarda Imperial de que ela é uma funcionária autorizada. O Mestre decide que é Moderado (13). Leia tem con em 4D+1. O jogador rola 4 dados: 5, 2, 4, 3 = 14 + 1 = 15. Sucesso — o guarda se afasta, levemente convencido."
+        }
+      ]
+    },
+    {
+      "id": "atributos",
+      "title": "Os seis atributos",
+      "content": "Todo personagem tem seis atributos base. Cada atributo cobre um conjunto de skills relacionadas.",
+      "subsections": [
+        {
+          "id": "dexterity",
+          "title": "Dexterity (Destreza)",
+          "content": "Coordenação olho-mão, equilíbrio, reflexos. Skills: blaster, dodge, melee combat, lightsaber, thrown weapons e outras.",
+          "examples": []
+        },
+        {
+          "id": "knowledge",
+          "title": "Knowledge (Conhecimento)",
+          "content": "Educação, memória, julgamento. Skills: alien species, bureaucracy, cultures, languages, streetwise, survival e outras.",
+          "examples": []
+        },
+        {
+          "id": "mechanical",
+          "title": "Mechanical (Mecânica)",
+          "content": "Habilidade com veículos e naves. Skills: astrogation, beast riding, capital ship piloting, repulsorlift operation, space transports, starfighter piloting e outras.",
+          "examples": []
+        },
+        {
+          "id": "perception",
+          "title": "Perception (Percepção)",
+          "content": "Consciência situacional, intuição, persuasão. Skills: bargain, command, con, hide, investigation, search, sneak e outras.",
+          "examples": []
+        },
+        {
+          "id": "strength",
+          "title": "Strength (Força)",
+          "content": "Físico, resistência a dano, combate desarmado. Skills: brawling, climbing/jumping, lifting, stamina, swimming.",
+          "examples": []
+        },
+        {
+          "id": "technical",
+          "title": "Technical (Técnica)",
+          "content": "Habilidade com tecnologia e equipamentos. Skills: computer programming, droid programming, first aid, medicine, demolitions, security, space transports repair e outras.",
+          "examples": []
+        }
+      ]
+    },
+    {
+      "id": "criacao-de-personagem",
+      "title": "Criação de personagem",
+      "content": "A forma mais rápida de criar um personagem é usar um dos templates prontos no final do livro. Templates são arquétipos prontos — Contrabandista, Piloto Rebelde, Caçador de Recompensas, Padawan Jedi, Senadora, etc.\n\nCada template já vem com valores de atributo distribuídos. Você recebe **7D extras** para distribuir entre as skills listadas no template (mínimo 1D por skill adicionado, máximo 2D por skill).\n\nSe preferir criar do zero (para humanos): você começa com **18D** para distribuir entre os 6 atributos. Cada atributo humano vai de 2D mínimo a 4D máximo. Depois os 7D de skills funcionam da mesma forma.\n\nTodo personagem começa com **5 Pontos de Personagem** e **1 Ponto de Força**.",
+      "examples": [
+        {
+          "label": "Exemplo — Thannik, o Caçador de Recompensas",
+          "text": "Greg pega o template de Caçador de Recompensas. O template tem Dexterity 4D, Knowledge 2D+2, Mechanical 2D+2, Perception 3D, Strength 3D+2, Technical 2D. Com seus 7D de skills, Greg coloca: 1D em blaster (→ 5D), 2D em dodge (→ 6D), 2D em space transports (→ 4D+2), 1D em search (→ 4D). Ainda sobra 1D — que ele usa para pegar 3 especializações de +1D cada: blaster pistol, Wookiees (alien species) e Ghtroc freighter (space transports)."
+        }
+      ]
+    },
+    {
+      "id": "dado-selvagem",
+      "title": "O Dado Selvagem",
+      "content": "Sempre que você rolar um pool de dados, **um deles deve ser de uma cor diferente** — esse é o Dado Selvagem. Ele representa os azares e as sortes do destino.\n\n**Resultado 2–5:** Some normalmente ao total. Nada especial.\n\n**Resultado 6:** Some 6 ao total e **role o dado de novo**. Some o novo resultado também. Se sair outro 6, continue rolando — os 6s se acumulam indefinidamente. Com muita sorte, você pode explodir o total para valores absurdos.\n\n**Resultado 1 (apenas na primeira rolagem):** Avise o Mestre. Ele escolhe uma das três opções:\n- Some o 1 normalmente ao total\n- Some o 1, mas uma **complicação** acontece (algo deu errado de forma narrativa)\n- Subtraia o 1 e o maior outro dado do total\n\nO Dado Selvagem vale para todas as rolagens: atributos, skills e dano de armas.",
+      "examples": [
+        {
+          "label": "Exemplo — A explosão do Dado Selvagem",
+          "text": "Thannik rola sua skill de blaster (5D). Seus quatro dados normais saem como 1, 2, 5, 6. Seu Dado Selvagem sai como 6! Ele soma 6 ao total e rola de novo — outro 6! Rola uma última vez e tira 3. Total: 1+2+5+6+6+6+3 = 29. Uma pancada brutal."
+        },
+        {
+          "label": "Exemplo — O pior momento possível",
+          "text": "Han está tentando escalar furtivamente até a patrulha Imperial na floresta de Endor. Rola sneak (4D) e o Dado Selvagem sai como 1. O Mestre sorri — Han pisa num galho seco. CRACK. O soldado Imperial escuta e gira para olhar."
+        }
+      ]
+    },
+    {
+      "id": "combate",
+      "title": "Combate",
+      "content": "Combate acontece em **rounds de 5 segundos**. Em cada round, o personagem pode fazer **uma ação** sem penalidade. Ações extras custam −1D por ação adicional, aplicado a **todas** as rolagens do round — inclusive reações.\n\n**O fluxo básico de um combate:**\n\n1. Determine quem age primeiro: role Perception para iniciativa\n2. O atacante rola sua skill de ataque contra a dificuldade de alcance (ou o total de dodge do defensor)\n3. Se acertar, rola o dano da arma\n4. O alvo rola Strength para resistir ao dano\n5. Compare dano e resistência na Tabela de Dano\n\n**Esquivar** é uma reação: role dodge e o resultado vira a nova dificuldade do ataque. Qualquer atacante naquele round precisa superar esse número.",
+      "examples": [
+        {
+          "label": "Exemplo — Troca de tiros",
+          "text": "Thannik atira num Stormtrooper a 27 metros (alcance médio, dificuldade 13). Thannik tem blaster pistol specialization 6D. Rola e tira 16 — acerta. O dano da blaster pistol é 4D: rola e tira 18. O Stormtrooper rola Strength 3D+1: tira 11. Diferença: 18−11 = 7. Pela tabela: 4–8 de diferença = Ferido. O Stormtrooper cai e perde −1D em tudo até ser curado."
+        }
+      ]
+    },
+    {
+      "id": "a-forca",
+      "title": "A Força",
+      "content": "A Força é o coração narrativo e emocional do Star Wars WEG. Três recursos mecânicos representam a relação dos personagens com a Força:\n\n**Pontos de Força** — cada personagem começa com 1. Gaste um Ponto de Força antes de rolar: todos os seus dados dobramos neste round. Não pode combinar com Pontos de Personagem no mesmo round.\n\nComo usá-lo importa: usar de forma heroica (salvar vidas, enfrentar o mal) devolve o ponto no final da aventura. Usar de forma maligna o perde permanentemente — e ganha um Ponto do Lado Negro.\n\n**Pontos de Personagem** — você começa com 5. Gaste um *após* uma rolagem (antes de saber o resultado) para adicionar +1D ao total. Guardar pontos de personagem entre aventuras permite melhorar suas skills.\n\n**Pontos do Lado Negro** — recebidos por atos malignos. Acumule demais e o personagem cai para o Lado Negro — virando um personagem do Mestre. Para se redimir: 2 aventuras de comportamento genuinamente virtuoso por ponto.",
+      "examples": [
+        {
+          "label": "Exemplo — Luke no trecho final de Uma Nova Esperança",
+          "text": "Luke está no Trench Run da Estrela da Morte. A situação parece impossível. Ele gasta um Ponto de Força — seus dados dobram neste round. É um momento heroico, dramaticamente apropriado: ele receberá o ponto de volta no final da aventura, mais um extra."
+        },
+        {
+          "label": "Exemplo — Usando Pontos de Personagem",
+          "text": "Leia está negociando com um mercador suspeitoso e rola seu con de 4D — tira um decepcionante 9. O Mestre ainda não revelou o resultado. Ela gasta 1 Ponto de Personagem: rola 1D a mais e tira 5. Novo total: 14. Suficiente para convencer o mercador."
+        }
+      ]
+    },
+    {
+      "id": "primeira-sessao",
+      "title": "Conduzindo sua primeira sessão",
+      "content": "**Regra de Ouro do Star Wars WEG:** Sempre que não souber como resolver algo, escolha um número de dificuldade e peça uma rolagem. Se o resultado for igual ou maior: sucesso.\n\n**Defina dificuldades com contexto:** Pense no que seria lógico narrativamente. Uma perseguição de speeder por uma cidade movimentada é Difícil (18). Decolar um X-wing num hangar vazio é Fácil (8). Dobre a dificuldade se as condições forem terríveis.\n\n**Peça rolagens apenas quando há risco real:** Se o resultado de uma ação não importa para a história — não role. Personagens competentes fazem coisas rotineiras sem precisar tirar dados.\n\n**Deixe as complicações acontecerem:** Quando o Dado Selvagem sair 1, não pule essa oportunidade. Complicações não precisam ser mortais — precisam ser interessantes. Han pisou no galho: o Rebelde vira, os olhos se encontram, o relógio começa a correr.\n\n**Não tente usar todas as regras de uma vez:** Na primeira sessão: use a mecânica central, o Dado Selvagem, dificuldades e a Tabela de Dano. Pontos de Força e regras de combate avançado podem esperar.\n\n**Star Wars é sobre épica e cinema:** Descreva as cenas como se fosse um filme. 'A blaster bolt ricochets off the wall next to your head, sending sparks in every direction. Three stormtroopers are advancing down the corridor.' Isso importa mais do que acertar cada número na tabela.",
+      "examples": []
+    }
+  ]
+}

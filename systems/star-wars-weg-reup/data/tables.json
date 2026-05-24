@@ -1,0 +1,67 @@
+{
+  "version": "1.0",
+  "panels": [
+    {
+      "id": "difficulty-numbers",
+      "title": "Níveis de Dificuldade",
+      "icon": "🎲",
+      "default_open": true,
+      "tables": [
+        {
+          "id": "difficulty-table",
+          "title": "Níveis de Dificuldade",
+          "columns": ["Nível", "Número"],
+          "rows": [
+            ["Muito Fácil",    "1–5"],
+            ["Fácil",          "6–10"],
+            ["Moderado",       "11–15"],
+            ["Difícil",        "16–20"],
+            ["Muito Difícil",  "21–30"],
+            ["Heroico",        "31+"]
+          ],
+          "note": "Use o número do meio da faixa quando em dúvida. Ex: Moderado → 13."
+        }
+      ]
+    },
+    {
+      "id": "multiple-actions",
+      "title": "Ações Múltiplas",
+      "icon": "⚡",
+      "default_open": true,
+      "tables": [
+        {
+          "id": "multiple-actions-table",
+          "title": "Penalidade por Ações Múltiplas",
+          "columns": ["Ações no Round", "Penalidade"],
+          "rows": [
+            ["1 ação",  "Nenhuma"],
+            ["2 ações", "−1D em cada rolagem"],
+            ["3 ações", "−2D em cada rolagem"],
+            ["4 ações", "−3D em cada rolagem"],
+            ["5 ações", "−4D em cada rolagem"]
+          ],
+          "note": "A penalidade se aplica a TODAS as rolagens do round, inclusive reações."
+        }
+      ]
+    },
+    {
+      "id": "combat-ranges",
+      "title": "Alcances de Combate",
+      "icon": "🎯",
+      "default_open": true,
+      "tables": [
+        {
+          "id": "range-difficulty",
+          "title": "Dificuldade por Alcance",
+          "columns": ["Alcance", "Dificuldade"],
+          "rows": [
+            ["Ponto cego (até 3m)",   "Muito Fácil (5)"],
+            ["Curto (maioria das lutas internas)", "Fácil (8)"],
+            ["Médio (maioria das lutas externas)", "Moderado (13)"],
+            ["Longo (distâncias grandes)",         "Difícil (18)"]
+          ]
+        }
+      ]
+    }
+  ]
+}

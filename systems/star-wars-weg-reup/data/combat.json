@@ -1,0 +1,87 @@
+{
+  "version": "1.0",
+  "panels": [
+    {
+      "id": "damage-chart",
+      "title": "Tabela de Dano",
+      "icon": "💥",
+      "default_open": true,
+      "tables": [
+        {
+          "id": "damage-results",
+          "title": "Resultado de Dano (Dano − Resistência)",
+          "columns": ["Diferença", "Resultado"],
+          "rows": [
+            ["Resistência ≥ Dano",  "Sem efeito"],
+            ["Dano excede por 1–3", "Atordoado — −1D por 2 rounds"],
+            ["Dano excede por 4–8", "Ferido — −1D até curar"],
+            ["Dano excede por 9–12","Incapacitado — inconsciente 10D min."],
+            ["Dano excede por 13–15","Gravemente ferido — morrendo"],
+            ["Dano excede por 16+", "Morto"]
+          ],
+          "note": "Ferido duas vezes = −2D. Ferido três vezes = Incapacitado."
+        }
+      ]
+    },
+    {
+      "id": "combat-actions",
+      "title": "Ações de Combate",
+      "icon": "⚔️",
+      "default_open": true,
+      "tables": [
+        {
+          "id": "actions-list",
+          "title": "Ações Comuns no Round",
+          "columns": ["Ação", "Atributo/Skill"],
+          "rows": [
+            ["Atirar com blaster",        "Blaster (DEX)"],
+            ["Esquivar",                  "Dodge (DEX)"],
+            ["Atacar corpo-a-corpo",      "Melee combat (DEX)"],
+            ["Aparar ataque corpo-a-corpo","Melee parry (DEX)"],
+            ["Soco / luta desarmada",     "Brawling (STR)"],
+            ["Aparar ataque desarmado",   "Brawling parry (DEX)"],
+            ["Sacar arma",                "1 ação (sem rolagem)"],
+            ["Mover-se",                  "Gratuito (até Move/round)"]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "wild-die",
+      "title": "O Dado Selvagem",
+      "icon": "🎲",
+      "default_open": true,
+      "tables": [
+        {
+          "id": "wild-die-results",
+          "title": "Resultados do Dado Selvagem",
+          "columns": ["Resultado", "Efeito"],
+          "rows": [
+            ["2–5",  "Soma normalmente ao total"],
+            ["6",    "Soma 6 + rola novamente (acumula 6s)"],
+            ["1",    "Mestre escolhe: soma normal / subtrai + maior dado / complicação"]
+          ],
+          "note": "Um dado de cor diferente é o Dado Selvagem. Sempre role um em cada pool."
+        }
+      ]
+    },
+    {
+      "id": "force-points",
+      "title": "Pontos de Força",
+      "icon": "✨",
+      "default_open": true,
+      "tables": [
+        {
+          "id": "force-spending",
+          "title": "Uso dos Pontos Especiais",
+          "columns": ["Ponto", "Efeito", "Recuperação"],
+          "rows": [
+            ["Ponto de Personagem", "Adiciona +1D a qualquer rolagem (após a jogada)", "Gasto entre aventuras"],
+            ["Ponto de Força",      "Dobra todos os dados do round; não combina com P.Personagem", "Heroico: recupera no fim. Maligno: perde permanentemente."],
+            ["Ponto do Lado Negro",  "Recebido por atos malignos. Acumule muito = vira Mestre", "Redenção: 2 aventuras de bondade por ponto"]
+          ]
+        }
+      ]
+    }
+  ]
+}

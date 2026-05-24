@@ -28,28 +28,9 @@ GM Shield is not a replacement for official rulebooks. It is a gateway — a fre
 
 ---
 
-## Features
+## Live Demo
 
-### 📖 Quick Start Guides
-
-A Quick Start for each supported RPG system, designed to get someone playing in one reading session.
-
-- Core concepts explained clearly with examples
-- Character creation walkthrough, step by step
-- Essential rules: tests, combat, special mechanics
-- Key tables and reference charts
-- GM tips for running a first session
-- Printable version included — clean layout, no fluff
-
-### 🛡️ Digital GM Screens
-
-A digital reference tool that replaces the physical GM screen at the table.
-
-- All the tables a GM needs, organized by category
-- Compact panel layout — designed to avoid scrolling
-- Optimized for laptop, iPad, and tablet use during sessions
-- Fast navigation between sections
-- Collapsible panels for custom workflow
+🌐 **[gmshield.ffgontijo.com](https://gmshield.ffgontijo.com)** — hosted on a ZimaOS home server
 
 ---
 
@@ -57,25 +38,41 @@ A digital reference tool that replaces the physical GM screen at the table.
 
 | System | Quick Start | GM Screen | Status |
 |--------|-------------|-----------|--------|
-| Star Wars: The Roleplaying Game (WEG REUP) | ✅ | ✅ | 🔨 In development |
-| Dungeons & Dragons 5th Edition | 📋 Planned | 📋 Planned | — |
-| Call of Cthulhu | 📋 Planned | 📋 Planned | — |
-| Ordem Paranormal RPG | 📋 Planned | 📋 Planned | — |
-| Dragonbane | 📋 Planned | 📋 Planned | — |
+| Star Wars: The Roleplaying Game (WEG REUP) | ✅ | 🔨 | 🔨 In development |
+| Dungeons & Dragons 5th Edition | 📋 | 📋 | Planned |
+| Call of Cthulhu | 📋 | 📋 | Planned |
+| Ordem Paranormal RPG | 📋 | 📋 | Planned |
+| Dragonbane | 📋 | 📋 | Planned |
 
-> Star Wars WEG REUP is the pilot system. Its implementation defines the templates, standards, and workflow for all future systems.
+---
+
+## Features
+
+### 📖 Quick Start Guides
+- Core concepts explained clearly with examples
+- Character creation walkthrough, step by step
+- Essential rules: tests, combat, special mechanics
+- Key tables and reference charts
+- GM tips for running a first session
+- Printable version — clean PDF-ready layout
+
+### 🛡️ Digital GM Screens
+- All reference tables in collapsible panels
+- Designed to avoid scrolling — fits on one screen
+- Optimized for laptop, iPad, and tablet use during sessions
+- Panel state remembered via localStorage
 
 ---
 
 ## Who Is This For?
 
-**New players** who want to understand a system quickly, without reading 300+ pages before their first session.
+**New players** who want to understand a system without reading 300+ pages first.
 
-**New Game Masters** who need a reliable reference and a practical starting point to run their first adventure.
+**New Game Masters** who need a practical starting point to run their first adventure.
 
-**Experienced GMs** who want a fast, clean digital reference tool they can actually use at the table.
+**Experienced GMs** who want a fast digital reference tool at the table.
 
-**Brazilian RPG players**, specifically — many of the systems covered here have little or no material available in Portuguese. GM Shield provides original Portuguese-language content for systems that have historically been inaccessible to non-English speakers.
+**Brazilian RPG players** — GM Shield creates original Portuguese-language content for systems with no official pt-BR material (Star Wars WEG, for example).
 
 ---
 
@@ -88,11 +85,9 @@ A digital reference tool that replaces the physical GM screen at the table.
 | Behavior | Vanilla JavaScript (ES6+) |
 | Data | JSON files per system |
 | Print | Dedicated `print.css` stylesheet |
-| Hosting | GitHub Pages (static) |
+| Hosting | GitHub Pages (static) + ZimaOS home server |
 
-No build step. No bundler. No framework required to contribute or run locally. Just open `index.html` in a browser.
-
-> Future versions may adopt a static site generator (Astro or Eleventy) as the project scales. The data structure and templates are designed with that migration in mind.
+No build step. No bundler. No framework. Just open `index.html` in a browser.
 
 ---
 
@@ -102,152 +97,118 @@ No build step. No bundler. No framework required to contribute or run locally. J
 gm-shield/
 │
 ├── index.html                  # Landing page
-├── README.md                   # This file
+├── README.md
 │
 ├── docs/                       # Project documentation
-│   ├── VISION.md               # Full vision, audience, and goals
-│   ├── TECHNICAL.md            # Architecture and development guide
-│   ├── STYLE-GUIDE.md          # Visual identity and design tokens
-│   ├── CONTENT-GUIDE.md        # How to write Quick Starts and GM Screens
-│   ├── SYSTEM-TEMPLATE.md      # Step-by-step guide to adding a new system
-│   ├── PRINT-GUIDELINES.md     # How to produce print-ready versions
-│   └── CONTRIBUTING.md         # How to contribute to the project
-│
-├── assets/
-│   ├── images/
-│   ├── icons/
-│   ├── logos/
-│   └── fonts/
+│   ├── VISION.md
+│   ├── TECHNICAL.md
+│   ├── CONTENT-GUIDE.md
+│   ├── SYSTEM-TEMPLATE.md
+│   ├── CONTRIBUTING.md
+│   └── PRINT-GUIDELINES.md
 │
 ├── css/
-│   ├── base/
-│   │   ├── reset.css
-│   │   ├── typography.css
-│   │   ├── variables.css
-│   │   └── layout.css
-│   ├── components/
-│   │   ├── cards.css
-│   │   ├── tables.css
-│   │   ├── navigation.css
-│   │   ├── buttons.css
-│   │   ├── panels.css
-│   │   └── print.css
-│   └── systems/
-│       ├── star-wars-weg-reup.css
-│       ├── dnd5e.css
-│       ├── call-of-cthulhu.css
-│       └── ordem-paranormal.css
+│   ├── base/                   # reset, variables, typography, layout
+│   ├── components/             # navigation, cards, tables, panels, buttons, print
+│   └── systems/                # per-system theme overrides
 │
 ├── js/
-│   ├── core/
-│   │   ├── app.js
-│   │   ├── router.js
-│   │   ├── navigation.js
-│   │   ├── print.js
-│   │   └── theme-loader.js
-│   ├── components/
-│   │   ├── system-card.js
-│   │   ├── quickstart-section.js
-│   │   ├── gm-screen-panel.js
-│   │   ├── table-renderer.js
-│   │   └── search.js
-│   └── utils/
-│       ├── formatters.js
-│       ├── responsive.js
-│       └── validators.js
+│   ├── core/                   # app, theme-loader, navigation, print, router
+│   ├── components/             # table-renderer, gm-screen-panel, system-card
+│   └── utils/                  # formatters, validators
 │
 ├── systems/
-│   ├── star-wars-weg-reup/
-│   │   ├── index.html
+│   ├── star-wars-weg-reup/     # ← Pilot system
 │   │   ├── quickstart.html
 │   │   ├── gm-screen.html
-│   │   ├── data/
-│   │   │   ├── system-info.json
-│   │   │   ├── rules.json
-│   │   │   ├── tables.json
-│   │   │   ├── combat.json
-│   │   │   ├── conditions.json
-│   │   │   └── examples.json
-│   │   └── docs/
-│   │       └── notes.md
+│   │   └── data/               # rules.json, tables.json, combat.json, conditions.json
 │   └── shared/
-│       ├── templates/
-│       │   ├── system-home-template.html
-│       │   ├── quickstart-template.html
-│       │   └── gm-screen-template.html
-│       └── schemas/
-│           ├── system.schema.json
-│           ├── quickstart.schema.json
-│           └── gm-screen.schema.json
+│       ├── templates/          # HTML templates for new systems
+│       └── schemas/            # JSON schemas (data contracts)
 │
 └── downloads/
-    ├── pdf/
-    ├── printable-html/
-    └── exports/
+    └── pdf/                    # Generated Quick Start PDFs
 ```
+
+---
+
+## Development Workflow
+
+This project uses a three-tier workflow:
+
+```
+Local (Windows)  →  git push  →  GitHub  →  git pull  →  ZimaOS Server
+```
+
+### Local → GitHub
+
+```bash
+git add .
+git commit -m "feat: description of what changed"
+git push
+```
+
+### GitHub → ZimaOS Server
+
+```bash
+# Connect to ZimaOS terminal (web terminal at 192.168.15.x)
+bash /DATA/Sites/gmshield/update.sh
+```
+
+The update script runs `git fetch origin && git reset --hard origin/main` — always produces a clean, conflict-free sync.
 
 ---
 
 ## Getting Started (Local Development)
 
-No dependencies. No installation required.
-
 ```bash
-# Clone the repository
 git clone https://github.com/ffgontijo/gmshield.git
-
-# Navigate to the project folder
 cd gmshield
-
-# Open in your browser
-open index.html
-```
-
-For a better local development experience with live reload:
-
-```bash
 python3 -m http.server 8080
-# Then open: http://localhost:8080
+# Open: http://localhost:8080
 ```
+
+No dependencies. No installation.
 
 ---
 
 ## Roadmap
 
-### Phase 1 — Foundation (Current)
-- [ ] Project documentation and standards
-- [ ] Base HTML/CSS/JS architecture
-- [ ] Design system and component library
-- [ ] Star Wars WEG REUP: Quick Start
-- [ ] Star Wars WEG REUP: Digital GM Screen
-- [ ] Print/PDF export for Quick Start
+### Phase 1 — Foundation ✅
+- [x] Project documentation and standards
+- [x] Base HTML/CSS/JS architecture
+- [x] Design system and component library
+- [x] Landing page (epic grimoire aesthetic)
+- [x] Star Wars WEG REUP: Quick Start
 
-### Phase 2 — Expansion
-- [ ] Landing page with system selection
+### Phase 2 — In Progress 🔨
+- [ ] Star Wars WEG REUP: Digital GM Screen
+- [ ] Star Wars WEG REUP: PDF download
+- [ ] GitHub Pages deployment
+
+### Phase 3 — Expansion
 - [ ] Call of Cthulhu: Quick Start + GM Screen
 - [ ] D&D 5e: Quick Start + GM Screen
-- [ ] Search functionality within Quick Starts
-- [ ] Responsive improvements for mobile
-
-### Phase 3 — Community
 - [ ] Ordem Paranormal: Quick Start + GM Screen
-- [ ] Contribution documentation and process
-- [ ] Community submission pipeline
-- [ ] GitHub Pages deployment
+
+### Phase 4 — Community
+- [ ] Dragonbane support
+- [ ] Contribution pipeline
+- [ ] Community submission process
 
 ---
 
 ## Contributing
 
-GM Shield welcomes contributions from the RPG community. Please read [CONTRIBUTING.md](docs/CONTRIBUTING.md) before submitting anything.
+Please read [CONTRIBUTING.md](docs/CONTRIBUTING.md) before submitting anything.
 
-The most important thing: all content must be **original**. Do not reproduce text, tables, or mechanics verbatim from official rulebooks.
+All content must be **original**. Do not reproduce text, tables, or mechanics verbatim from official rulebooks.
 
 ---
 
 ## License
 
-This project is licensed under [Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0)](https://creativecommons.org/licenses/by-nc-sa/4.0/).
+[Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0)](https://creativecommons.org/licenses/by-nc-sa/4.0/)
 
 All references to Star Wars, Dungeons & Dragons, Call of Cthulhu, and other RPG systems are trademarks of their respective owners. This project is not affiliated with, endorsed by, or licensed by any of these rights holders.
 

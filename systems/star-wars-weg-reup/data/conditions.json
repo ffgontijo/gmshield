@@ -1,0 +1,47 @@
+{
+  "version": "1.0",
+  "conditions": [
+    {
+      "id": "stunned",
+      "name": "Atordoado",
+      "effect": "−1D em todas as rolagens",
+      "duration": "Resto do round + próximo round",
+      "recovery": "Desaparece automaticamente após 2 rounds. Se acumular stuns ≥ número antes do D da Força, desmaia por 2D minutos."
+    },
+    {
+      "id": "wounded",
+      "name": "Ferido",
+      "effect": "−1D em todas as rolagens; cai no chão e perde ações pelo resto do round",
+      "duration": "Até curar",
+      "recovery": "Medpac (rolagem de first aid Fácil) ou descanso de 3 dias + rolagem de Força (7+ = curado)"
+    },
+    {
+      "id": "wounded-twice",
+      "name": "Ferido Duas Vezes",
+      "effect": "−2D em todas as rolagens; cai no chão",
+      "duration": "Até curar",
+      "recovery": "Medpac (rolagem Fácil, dificuldade sobe a cada uso no dia) ou descanso + rolagem de Força"
+    },
+    {
+      "id": "incapacitated",
+      "name": "Incapacitado",
+      "effect": "Inconsciente por 10D minutos; não pode agir",
+      "duration": "10D minutos mínimo",
+      "recovery": "First aid Moderado para estabilizar. Descanso de 2 semanas antes de rolar recuperação."
+    },
+    {
+      "id": "mortally-wounded",
+      "name": "Gravemente Ferido",
+      "effect": "Inconsciente; morrendo. Sem ação médica imediata = morte em breve.",
+      "duration": "Até receber atendimento ou morrer",
+      "recovery": "First aid Difícil imediatamente; tanque de bacta. Descanso de 1 mês antes de rolar recuperação."
+    },
+    {
+      "id": "dead",
+      "name": "Morto",
+      "effect": "Personagem morto. Crie um novo.",
+      "duration": "Permanente",
+      "recovery": "Nenhuma (exceto por meios da Força em situações narrativas especiais)"
+    }
+  ]
+}
