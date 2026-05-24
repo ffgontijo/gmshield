@@ -1,0 +1,13 @@
+/* css/components/tables.css — GM Shield */
+.ref-table { width: 100%; font-size: var(--text-sm); border-radius: var(--radius-md); overflow: hidden; border: var(--border-width) solid var(--table-border); }
+.ref-table__title { display: block; padding: var(--space-2) var(--space-3); font-size: var(--text-xs); font-weight: var(--weight-semibold); letter-spacing: 0.07em; text-transform: uppercase; color: var(--system-text-muted); background-color: var(--table-header-bg); border-bottom: var(--border-width) solid var(--table-border); }
+.ref-table table { border: none; }
+.ref-table thead th { padding: var(--space-2) var(--space-3); font-size: var(--text-xs); font-weight: var(--weight-semibold); letter-spacing: 0.05em; text-transform: uppercase; text-align: left; color: var(--table-header-text); background-color: var(--table-header-bg); border-bottom: var(--border-width-thick) solid var(--system-border-accent); }
+.ref-table tbody tr { background-color: var(--table-row-bg); transition: background-color var(--transition-fast); }
+.ref-table tbody tr:nth-child(even) { background-color: var(--table-row-alt-bg); }
+.ref-table tbody tr:hover { background-color: rgb(255 255 255 / 0.04); }
+.ref-table tbody td { padding: var(--space-2) var(--space-3); color: var(--table-text); border-bottom: var(--border-width) solid var(--table-border); vertical-align: top; line-height: var(--leading-snug); }
+.ref-table tbody tr:last-child td { border-bottom: none; }
+.ref-table--compact thead th, .ref-table--compact tbody td { padding: var(--space-1) var(--space-2); font-size: var(--text-xs); }
+.ref-table tbody td:first-child { font-weight: var(--weight-semibold); color: var(--system-text-heading); white-space: nowrap; }
+.ref-table__note { padding: var(--space-2) var(--space-3); font-size: var(--text-xs); color: var(--system-text-muted); font-style: italic; border-top: var(--border-width) solid var(--table-border); background-color: var(--table-header-bg); }

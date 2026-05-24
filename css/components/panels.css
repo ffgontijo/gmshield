@@ -1,0 +1,13 @@
+/* css/components/panels.css — GM Shield */
+.panel { background-color: var(--panel-bg); border: var(--border-width) solid var(--panel-border); border-top: var(--border-width-thick) solid var(--panel-border-accent); border-radius: var(--panel-radius); overflow: hidden; display: flex; flex-direction: column; }
+.panel__header { display: flex; align-items: center; justify-content: space-between; padding: var(--space-2) var(--space-3); background-color: var(--panel-header-bg); cursor: pointer; user-select: none; gap: var(--space-2); transition: background-color var(--transition-fast); }
+.panel__header:hover { background-color: rgb(255 255 255 / 0.04); }
+.panel__title { font-size: var(--text-sm); font-weight: var(--weight-semibold); color: var(--panel-header-text); display: flex; align-items: center; gap: var(--space-2); }
+.panel__icon { font-size: var(--text-base); }
+.panel__toggle { font-size: var(--text-sm); color: var(--system-text-muted); transition: transform var(--transition-panel); flex-shrink: 0; }
+.panel--collapsed .panel__body { display: none; }
+.panel--collapsed .panel__toggle { transform: rotate(-90deg); }
+.panel__body { overflow-y: auto; flex: 1; }
+.panel__body > * + * { border-top: var(--border-width) solid var(--panel-border); }
+.panel--wide { grid-column: span 2; }
+.panel--tall { grid-row: span 2; }

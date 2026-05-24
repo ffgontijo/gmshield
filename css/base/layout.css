@@ -1,0 +1,15 @@
+/* css/base/layout.css — GM Shield */
+.container { width: 100%; max-width: var(--container-max); margin-inline: auto; padding-inline: var(--space-6); }
+.container--narrow { max-width: var(--container-narrow); }
+.container--wide { max-width: var(--container-wide); }
+.app { display: grid; grid-template-rows: var(--nav-height) 1fr; min-height: 100vh; }
+.main-content { padding: var(--space-8) 0; }
+.systems-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: var(--space-6); }
+.gm-screen { height: calc(100vh - var(--nav-height)); overflow: hidden; display: grid; grid-template-rows: auto 1fr; }
+.gm-screen__panels { display: grid; grid-template-columns: repeat(var(--gm-screen-cols), 1fr); gap: var(--panel-gap); padding: var(--space-4); overflow: hidden; align-items: start; }
+.gm-screen__panel { overflow-y: auto; max-height: 100%; }
+.quickstart { max-width: var(--container-narrow); margin-inline: auto; padding: var(--space-8) var(--space-6); }
+.sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border-width: 0; }
+@media (max-width: 1280px) { :root { --gm-screen-cols: 3; } }
+@media (max-width: 1024px) { :root { --gm-screen-cols: 2; } .gm-screen { height: auto; overflow: visible; } .gm-screen__panels { overflow: visible; } }
+@media (max-width: 768px) { :root { --gm-screen-cols: 1; } .container { padding-inline: var(--space-4); } }

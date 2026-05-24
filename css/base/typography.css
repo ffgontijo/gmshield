@@ -1,0 +1,29 @@
+/* css/base/typography.css — GM Shield */
+body {
+  font-family: var(--font-ui);
+  font-size: var(--text-base);
+  font-weight: var(--weight-normal);
+  line-height: var(--leading-normal);
+  color: var(--system-text);
+  background-color: var(--system-bg);
+}
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-ui);
+  font-weight: var(--weight-bold);
+  line-height: var(--leading-tight);
+  color: var(--system-text-heading);
+}
+h1 { font-size: var(--text-4xl); letter-spacing: -0.02em; }
+h2 { font-size: var(--text-3xl); letter-spacing: -0.01em; }
+h3 { font-size: var(--text-2xl); }
+h4 { font-size: var(--text-xl); }
+h5 { font-size: var(--text-lg); }
+h6 { font-size: var(--text-base); }
+p { font-size: var(--text-base); line-height: var(--leading-relaxed); color: var(--system-text); max-width: 70ch; }
+.quickstart-content p, .quickstart-content li { font-family: var(--font-body); font-size: var(--text-md); line-height: var(--leading-relaxed); }
+a:hover { color: var(--system-primary); }
+code { font-family: var(--font-mono); font-size: 0.9em; background-color: var(--qs-code-bg); padding: 0.1em 0.35em; border-radius: var(--radius-sm); color: var(--system-primary-light); }
+.label { font-size: var(--text-xs); font-weight: var(--weight-semibold); letter-spacing: 0.08em; text-transform: uppercase; color: var(--system-text-muted); }
+.text-muted { color: var(--system-text-muted); }
+.text-heading { color: var(--system-text-heading); }
+.text-accent { color: var(--system-primary); }
