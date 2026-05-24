@@ -1,0 +1,247 @@
+/* ==========================================================================
+   GM Shield — Design Tokens (CSS Custom Properties)
+
+   This file defines ALL design tokens used across the project.
+   No hardcoded color, spacing, or font value should appear in any other file.
+
+   Structure:
+   1. Global palette (raw colors, not for direct use)
+   2. Semantic globals (light-agnostic tokens used on landing page)
+   3. System theme tokens (overridden per system in css/systems/)
+   4. Layout tokens
+   5. Motion tokens
+   ========================================================================== */
+
+:root {
+
+  /* -------------------------------------------------------------------------
+     1. Global palette — raw values, used only to compose semantic tokens
+     ------------------------------------------------------------------------- */
+
+  --raw-black:       #000000;
+  --raw-white:       #FFFFFF;
+
+  /* Neutrals */
+  --raw-gray-900:    #0D0D12;
+  --raw-gray-850:    #131318;
+  --raw-gray-800:    #1A1A24;
+  --raw-gray-750:    #1F1F2C;
+  --raw-gray-700:    #242433;
+  --raw-gray-600:    #2E2E42;
+  --raw-gray-500:    #42425E;
+  --raw-gray-400:    #6060808;
+  --raw-gray-300:    #8A8AA8;
+  --raw-gray-200:    #B8B8D0;
+  --raw-gray-100:    #E2E2EC;
+  --raw-gray-50:     #F0F0F8;
+
+  /* Brand gold — shield/medieval feel for the landing page */
+  --raw-gold-900:    #3D2E00;
+  --raw-gold-700:    #7A5C00;
+  --raw-gold-500:    #C8A84B;
+  --raw-gold-400:    #D9BC6A;
+  --raw-gold-300:    #E8D090;
+  --raw-gold-100:    #F5EBCC;
+
+  /* Status colors */
+  --raw-green:       #2D9E6A;
+  --raw-yellow:      #D4A017;
+  --raw-red:         #C0392B;
+
+  /* -------------------------------------------------------------------------
+     2. Semantic global tokens — landing page and shared UI
+     These do NOT override system theme tokens.
+     ------------------------------------------------------------------------- */
+
+  /* Backgrounds */
+  --color-bg:              var(--raw-gray-900);
+  --color-bg-surface:      var(--raw-gray-800);
+  --color-bg-elevated:     var(--raw-gray-700);
+  --color-bg-overlay:      rgba(0, 0, 0, 0.6);
+
+  /* Borders */
+  --color-border:          rgba(255, 255, 255, 0.07);
+  --color-border-strong:   rgba(255, 255, 255, 0.14);
+  --color-border-focus:    var(--raw-gold-500);
+
+  /* Text */
+  --color-text:            var(--raw-gray-100);
+  --color-text-secondary:  var(--raw-gray-300);
+  --color-text-muted:      var(--raw-gray-500);
+  --color-text-inverse:    var(--raw-gray-900);
+
+  /* Accent (global — gold shield) */
+  --color-accent:          var(--raw-gold-500);
+  --color-accent-hover:    var(--raw-gold-400);
+  --color-accent-subtle:   rgba(200, 168, 75, 0.12);
+  --color-accent-text:     var(--raw-gold-300);
+
+  /* Status */
+  --color-status-active:   var(--raw-green);
+  --color-status-pending:  var(--raw-yellow);
+  --color-status-inactive: var(--raw-gray-500);
+
+  /* -------------------------------------------------------------------------
+     3. System theme tokens — overridden in css/systems/{system}.css
+     These are the only tokens that system pages use for colors.
+     ------------------------------------------------------------------------- */
+
+  /* Default (fallback) — same as global gold */
+  --system-primary:        var(--raw-gold-500);
+  --system-primary-dark:   var(--raw-gold-700);
+  --system-primary-glow:   rgba(200, 168, 75, 0.20);
+  --system-secondary:      var(--raw-gray-800);
+  --system-accent:         var(--raw-gold-300);
+
+  --system-bg:             var(--raw-gray-900);
+  --system-bg-card:        var(--raw-gray-800);
+  --system-bg-panel:       var(--raw-gray-750);
+  --system-bg-table-head:  var(--raw-gray-700);
+
+  --system-text:           var(--raw-gray-100);
+  --system-text-muted:     var(--raw-gray-300);
+  --system-text-heading:   var(--raw-gold-400);
+  --system-text-label:     var(--raw-gray-200);
+
+  --system-border:         rgba(255, 255, 255, 0.07);
+  --system-border-accent:  var(--raw-gold-500);
+  --system-border-panel:   rgba(255, 255, 255, 0.10);
+
+  /* -------------------------------------------------------------------------
+     4. Typography tokens
+     ------------------------------------------------------------------------- */
+
+  /* Font families */
+  --font-display:   'Cinzel', 'Palatino Linotype', serif;
+  --font-body:      'Crimson Pro', 'Georgia', serif;
+  --font-ui:        'Jost', 'Trebuchet MS', sans-serif;
+  --font-mono:      'JetBrains Mono', 'Courier New', monospace;
+
+  /* Type scale — minor third (1.25) */
+  --text-2xs:   0.64rem;    /*  ~10px */
+  --text-xs:    0.75rem;    /*  12px  */
+  --text-sm:    0.875rem;   /*  14px  */
+  --text-base:  1rem;       /*  16px  */
+  --text-lg:    1.125rem;   /*  18px  */
+  --text-xl:    1.25rem;    /*  20px  */
+  --text-2xl:   1.5rem;     /*  24px  */
+  --text-3xl:   1.875rem;   /*  30px  */
+  --text-4xl:   2.25rem;    /*  36px  */
+  --text-5xl:   3rem;       /*  48px  */
+  --text-6xl:   3.75rem;    /*  60px  */
+
+  /* Line heights */
+  --leading-tight:   1.2;
+  --leading-snug:    1.35;
+  --leading-normal:  1.5;
+  --leading-relaxed: 1.65;
+  --leading-loose:   1.8;
+
+  /* Letter spacing */
+  --tracking-tight:  -0.02em;
+  --tracking-normal:  0em;
+  --tracking-wide:    0.04em;
+  --tracking-wider:   0.08em;
+  --tracking-widest:  0.16em;
+
+  /* Font weights */
+  --weight-normal:   400;
+  --weight-medium:   500;
+  --weight-semibold: 600;
+  --weight-bold:     700;
+
+  /* -------------------------------------------------------------------------
+     5. Layout tokens
+     ------------------------------------------------------------------------- */
+
+  /* Spacing scale — 4px base unit */
+  --space-px:    1px;
+  --space-0-5:   0.125rem;  /*  2px  */
+  --space-1:     0.25rem;   /*  4px  */
+  --space-1-5:   0.375rem;  /*  6px  */
+  --space-2:     0.5rem;    /*  8px  */
+  --space-2-5:   0.625rem;  /* 10px  */
+  --space-3:     0.75rem;   /* 12px  */
+  --space-4:     1rem;      /* 16px  */
+  --space-5:     1.25rem;   /* 20px  */
+  --space-6:     1.5rem;    /* 24px  */
+  --space-7:     1.75rem;   /* 28px  */
+  --space-8:     2rem;      /* 32px  */
+  --space-10:    2.5rem;    /* 40px  */
+  --space-12:    3rem;      /* 48px  */
+  --space-14:    3.5rem;    /* 56px  */
+  --space-16:    4rem;      /* 64px  */
+  --space-20:    5rem;      /* 80px  */
+  --space-24:    6rem;      /* 96px  */
+  --space-32:    8rem;      /* 128px */
+
+  /* Container widths */
+  --container-sm:   640px;
+  --container-md:   768px;
+  --container-lg:   1024px;
+  --container-xl:   1280px;
+  --container-2xl:  1400px;
+
+  /* Border radius */
+  --radius-sm:   2px;
+  --radius-md:   4px;
+  --radius-lg:   8px;
+  --radius-xl:   12px;
+  --radius-full: 9999px;
+
+  /* Shadows */
+  --shadow-sm:   0 1px 3px rgba(0,0,0,0.4), 0 1px 2px rgba(0,0,0,0.3);
+  --shadow-md:   0 4px 12px rgba(0,0,0,0.5), 0 2px 4px rgba(0,0,0,0.3);
+  --shadow-lg:   0 10px 30px rgba(0,0,0,0.6), 0 4px 8px rgba(0,0,0,0.4);
+  --shadow-glow: 0 0 20px var(--system-primary-glow);
+
+  /* Z-index scale */
+  --z-base:     0;
+  --z-raised:   10;
+  --z-dropdown: 100;
+  --z-sticky:   200;
+  --z-modal:    300;
+  --z-toast:    400;
+
+  /* -------------------------------------------------------------------------
+     6. Motion tokens
+     ------------------------------------------------------------------------- */
+
+  --ease-out:      cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in:       cubic-bezier(0.4, 0, 1, 1);
+  --ease-in-out:   cubic-bezier(0.4, 0, 0.2, 1);
+
+  --duration-fast:   120ms;
+  --duration-base:   200ms;
+  --duration-slow:   350ms;
+  --duration-slower: 500ms;
+
+  --transition-fast:  var(--duration-fast) var(--ease-out);
+  --transition-base:  var(--duration-base) var(--ease-out);
+  --transition-slow:  var(--duration-slow) var(--ease-out);
+
+  /* -------------------------------------------------------------------------
+     7. GM Screen layout tokens
+     ------------------------------------------------------------------------- */
+
+  --gm-screen-columns:      3;
+  --gm-screen-panel-gap:    var(--space-3);
+  --gm-screen-panel-min-w:  280px;
+
+}
+
+/* Tablet overrides */
+@media (max-width: 1024px) {
+  :root {
+    --gm-screen-columns: 2;
+  }
+}
+
+/* Mobile overrides */
+@media (max-width: 640px) {
+  :root {
+    --gm-screen-columns: 1;
+    --text-5xl: 2.5rem;
+    --text-4xl: 2rem;
+  }
+}

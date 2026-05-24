@@ -1,0 +1,27 @@
+/* ==========================================================================
+   css/systems/star-wars-weg-reup.css — Star Wars WEG REUP Theme
+   Overrides all --system-* variables for the Star Wars visual identity.
+   ========================================================================== */
+
+:root {
+  --system-primary:        #FFE81F;   /* Star Wars yellow */
+  --system-primary-dark:   #C8B800;
+  --system-primary-light:  #FFF176;
+  --system-secondary:      #1A1A2E;   /* Deep space navy */
+  --system-accent:         #E63946;   /* Imperial red */
+
+  --system-bg:             #0D0D1A;   /* Space black */
+  --system-bg-alt:         #08080F;
+  --system-bg-card:        #1A1A2E;
+  --system-bg-panel:       #13132A;
+  --system-bg-panel-header: #0F0F22;
+
+  --system-text:           #E8E8F0;
+  --system-text-muted:     #8888AA;
+  --system-text-heading:   #FFE81F;
+  --system-text-on-primary: #0D0D1A;
+
+  --system-border:         #2E2E4E;
+  --system-border-accent:  #FFE81F;
+  --system-border-strong:  #4A4A7A;
+}

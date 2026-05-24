@@ -1,0 +1,27 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "GM Screen Tables",
+  "description": "Schema for tables.json — reference tables for the Digital GM Screen.",
+  "type": "object",
+  "required": ["system_id", "version", "tables"],
+  "properties": {
+    "system_id": { "type": "string" },
+    "version":   { "type": "string" },
+    "tables": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "title", "columns", "rows"],
+        "properties": {
+          "id":        { "type": "string" },
+          "title":     { "type": "string" },
+          "panel":     { "type": "string", "description": "Panel ID this table belongs to" },
+          "columns":   { "type": "array", "items": { "type": "string" } },
+          "rows":      { "type": "array", "items": { "type": "array" } },
+          "style":     { "type": "string", "enum": ["ref", "prose"], "default": "ref" },
+          "highlight": { "type": "array", "items": { "type": "integer" } }
+        }
+      }
+    }
+  }
+}

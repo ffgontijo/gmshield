@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<!-- TEMPLATE: systems/shared/templates/gm-screen-template.html
+     Copy this to systems/{system-slug}/gm-screen.html and replace all
+     {{PLACEHOLDER}} values. -->
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{{SYSTEM_NAME}} — GM Screen | GM Shield</title>
+
+  <link rel="stylesheet" href="/css/base/reset.css" />
+  <link rel="stylesheet" href="/css/base/variables.css" />
+  <link rel="stylesheet" href="/css/base/typography.css" />
+  <link rel="stylesheet" href="/css/base/layout.css" />
+  <link rel="stylesheet" href="/css/components/navigation.css" />
+  <link rel="stylesheet" href="/css/components/panels.css" />
+  <link rel="stylesheet" href="/css/components/tables.css" />
+  <link rel="stylesheet" href="/css/components/buttons.css" />
+</head>
+
+<body data-system="{{SYSTEM_SLUG}}">
+
+  <nav class="nav" role="navigation" aria-label="Main navigation">
+    <a href="/" class="nav__brand">
+      <span aria-hidden="true">⚔️</span>
+      <span>GM Shield</span>
+    </a>
+    <div class="nav__links">
+      <span class="nav__system-badge">{{SYSTEM_SHORT_NAME}}</span>
+      <button class="btn btn--ghost btn--sm" id="collapse-all-btn" title="Recolher todos os painéis">Recolher tudo</button>
+      <button class="btn btn--ghost btn--sm" id="expand-all-btn"   title="Expandir todos os painéis">Expandir tudo</button>
+    </div>
+  </nav>
+
+  <div class="system-nav" role="navigation" aria-label="System navigation">
+    <a href="/systems/{{SYSTEM_SLUG}}/" class="system-nav__tab">Início</a>
+    <a href="/systems/{{SYSTEM_SLUG}}/quickstart.html" class="system-nav__tab">📖 Quick Start</a>
+    <a href="/systems/{{SYSTEM_SLUG}}/gm-screen.html"  class="system-nav__tab">🛡️ GM Screen</a>
+  </div>
+
+  <!-- GM Screen: full viewport, no page scroll -->
+  <div class="gm-screen" id="gm-screen" role="main" aria-label="GM Screen panels">
+    <div class="gm-screen__panels" id="panels-grid">
+      <!-- Panels are rendered here by gm-screen-panel.js from JSON data -->
+    </div>
+  </div>
+
+  <script type="module">
+    import { initGmScreen } from '/js/components/gm-screen-panel.js';
+
+    // Load all GM Screen data for this system and initialize panels.
+    // Replace '{{SYSTEM_SLUG}}' with the actual slug in the copied file.
+    async function loadScreen() {
+      const slug = document.body.dataset.system;
+      const base = `/systems/${slug}/data`;
+
+      const [tablesRes, combatRes, conditionsRes] = await Promise.all([
+        fetch(`${base}/tables.json`),
+        fetch(`${base}/combat.json`),
+        fetch(`${base}/conditions.json`)
+      ]);
+
+      const [tables, combat, conditions] = await Promise.all([
+        tablesRes.json(),
+        combatRes.json(),
+        conditionsRes.json()
+      ]);
+
+      // Merge all panels in display order
+      const allPanels = [
+        ...tables.panels,
+        ...combat.panels,
+        // Conditions are converted to a panel here
+        {
+          id: 'conditions',
+          title: 'Condições',
+          icon: '💀',
+          default_open: true,
+          tables: [{
+            id: 'conditions-table',
+            title: 'Condições e Efeitos',
+            columns: ['Condição', 'Efeito', 'Duração'],
+            rows: conditions.conditions.map(c => [c.name, c.effect, c.duration ?? '—'])
+          }]
+        }
+      ];
+
+      const grid = document.getElementById('panels-grid');
+      initGmScreen(allPanels, grid, slug);
+    }
+
+    // Collapse / expand all panels
+    document.getElementById('collapse-all-btn').addEventListener('click', () => {
+      document.querySelectorAll('.panel').forEach(p => p.classList.add('panel--collapsed'));
+    });
+    document.getElementById('expand-all-btn').addEventListener('click', () => {
+      document.querySelectorAll('.panel').forEach(p => p.classList.remove('panel--collapsed'));
+    });
+
+    loadScreen();
+  </script>
+
+  <script type="module" src="/js/core/app.js"></script>
+</body>
+</html>

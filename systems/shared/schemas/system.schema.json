@@ -1,0 +1,22 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "System Info",
+  "description": "Metadata for a GM Shield RPG system entry.",
+  "type": "object",
+  "required": ["id", "name", "language", "theme", "status", "description"],
+  "properties": {
+    "id": { "type": "string", "pattern": "^[a-z0-9-]+$" },
+    "name": { "type": "string" },
+    "subtitle": { "type": "string" },
+    "publisher": { "type": "string" },
+    "year": { "type": "string" },
+    "genre": { "type": "string" },
+    "language": { "type": "string", "enum": ["pt-BR", "en", "es", "fr", "de"] },
+    "theme": { "type": "string" },
+    "status": { "type": "string", "enum": ["active", "development", "planned"] },
+    "description": { "type": "string" },
+    "card_accent": { "type": "string" },
+    "quickstart_available": { "type": "boolean", "default": false },
+    "gm_screen_available": { "type": "boolean", "default": false }
+  }
+}

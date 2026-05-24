@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<!-- TEMPLATE: systems/shared/templates/quickstart-template.html
+     Copy this to systems/{system-slug}/quickstart.html and replace all
+     {{PLACEHOLDER}} values with your system's content.
+     DO NOT leave any {{PLACEHOLDER}} in a published file. -->
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="{{SYSTEM_NAME}} Quick Start — Aprenda a jogar em uma leitura." />
+  <title>{{SYSTEM_NAME}} — Quick Start | GM Shield</title>
+
+  <link rel="stylesheet" href="/css/base/reset.css" />
+  <link rel="stylesheet" href="/css/base/variables.css" />
+  <link rel="stylesheet" href="/css/base/typography.css" />
+  <link rel="stylesheet" href="/css/base/layout.css" />
+  <link rel="stylesheet" href="/css/components/navigation.css" />
+  <link rel="stylesheet" href="/css/components/tables.css" />
+  <link rel="stylesheet" href="/css/components/buttons.css" />
+  <link rel="stylesheet" href="/css/components/print.css" />
+</head>
+
+<!-- data-system must match the system folder slug exactly -->
+<body data-system="{{SYSTEM_SLUG}}">
+
+  <nav class="nav" role="navigation" aria-label="Main navigation">
+    <a href="/" class="nav__brand">
+      <span aria-hidden="true">⚔️</span>
+      <span>GM Shield</span>
+    </a>
+    <div class="nav__links">
+      <span class="nav__system-badge">{{SYSTEM_SHORT_NAME}}</span>
+    </div>
+  </nav>
+
+  <div class="system-nav" role="navigation" aria-label="System navigation">
+    <a href="/systems/{{SYSTEM_SLUG}}/" class="system-nav__tab">Início</a>
+    <a href="/systems/{{SYSTEM_SLUG}}/quickstart.html" class="system-nav__tab">📖 Quick Start</a>
+    <a href="/systems/{{SYSTEM_SLUG}}/gm-screen.html"  class="system-nav__tab">🛡️ GM Screen</a>
+  </div>
+
+  <main class="quickstart quickstart-content" id="main">
+
+    <!-- ============================================================
+         QUICK START HEADER
+         ============================================================ -->
+    <header style="padding-bottom: var(--space-8); border-bottom: 1px solid var(--system-border); margin-bottom: var(--space-8);">
+      <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: var(--space-4);">
+        <div>
+          <p class="label" style="margin-bottom: var(--space-2);">Quick Start</p>
+          <h1>{{SYSTEM_NAME}}</h1>
+          <p style="color: var(--system-text-muted); margin-top: var(--space-2);">{{SYSTEM_SUBTITLE}}</p>
+        </div>
+        <div style="display: flex; gap: var(--space-3);" class="no-print">
+          <button class="btn btn--secondary" data-action="print">🖨️ Imprimir / PDF</button>
+        </div>
+      </div>
+    </header>
+
+    <!-- ============================================================
+         SECTION 1 — O QUE É ESTE JOGO?
+         ============================================================ -->
+    <section class="section-chapter" id="o-que-e-este-jogo" aria-labelledby="heading-what-is">
+      <h2 id="heading-what-is">O que é este jogo?</h2>
+      <!-- CONTENT: 2–3 paragraphs introducing the system. -->
+    </section>
+
+    <!-- ============================================================
+         SECTION 2 — O QUE VOCÊ PRECISA PARA JOGAR
+         ============================================================ -->
+    <section id="o-que-voce-precisa" aria-labelledby="heading-what-you-need">
+      <h2 id="heading-what-you-need">O que você precisa para jogar</h2>
+      <!-- CONTENT: Players, GM, dice, paper/pencils. Keep it short. -->
+    </section>
+
+    <!-- ============================================================
+         SECTION 3 — A MECÂNICA CENTRAL (most important section)
+         ============================================================ -->
+    <section class="section-chapter" id="a-mecanica-central" aria-labelledby="heading-core">
+      <h2 id="heading-core">A mecânica central</h2>
+      <!-- CONTENT: The one core mechanic. Multiple examples required. -->
+    </section>
+
+    <!-- ============================================================
+         SECTION 4 — PERSONAGENS
+         ============================================================ -->
+    <section class="section-chapter" id="personagens" aria-labelledby="heading-characters">
+      <h2 id="heading-characters">Personagens</h2>
+      <!-- CONTENT: Attributes, skills, character sheet overview. -->
+    </section>
+
+    <!-- ============================================================
+         SECTION 5 — TESTES E AÇÕES
+         ============================================================ -->
+    <section id="testes-e-acoes" aria-labelledby="heading-tests">
+      <h2 id="heading-tests">Testes e ações</h2>
+      <!-- CONTENT: How to roll, difficulty numbers, success/failure, opposed rolls. -->
+    </section>
+
+    <!-- ============================================================
+         SECTION 6 — COMBATE
+         ============================================================ -->
+    <section class="section-chapter" id="combate" aria-labelledby="heading-combat">
+      <h2 id="heading-combat">Combate</h2>
+      <!-- CONTENT: Combat round structure. Hit, damage, wounds. Essential rules only. -->
+    </section>
+
+    <!-- ============================================================
+         SECTION 7 — MECÂNICAS ESPECIAIS
+         ============================================================ -->
+    <section id="mecanicas-especiais" aria-labelledby="heading-special">
+      <h2 id="heading-special">{{SPECIAL_MECHANIC_TITLE}}</h2>
+      <!-- CONTENT: The mechanic(s) that define this system's identity. -->
+    </section>
+
+    <!-- ============================================================
+         SECTION 8 — CONDUZINDO SUA PRIMEIRA SESSÃO (GM only)
+         ============================================================ -->
+    <section class="section-chapter" id="primeira-sessao" aria-labelledby="heading-first-session">
+      <h2 id="heading-first-session">Conduzindo sua primeira sessão</h2>
+      <!-- CONTENT: Practical GM advice. Difficulty setting, when to roll, handling failure. -->
+    </section>
+
+    <!-- ============================================================
+         SECTION 9 — REFERÊNCIA RÁPIDA (last page, printable)
+         ============================================================ -->
+    <section class="section-chapter quick-reference" id="referencia-rapida" aria-labelledby="heading-quick-ref">
+      <h2 id="heading-quick-ref">Referência rápida</h2>
+      <!-- CONTENT: One-page summary of all key tables and numbers.
+           Must fit on one printed A4 page.
+           Use .ref-table components rendered from JSON data. -->
+      <div id="quick-reference-tables">
+        <!-- Populated by JavaScript from tables.json -->
+      </div>
+    </section>
+
+  </main>
+
+  <script type="module" src="/js/core/app.js"></script>
+  <script type="module" src="/js/core/print.js"></script>
+</body>
+</html>
